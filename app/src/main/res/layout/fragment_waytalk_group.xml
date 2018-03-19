@@ -1,0 +1,206 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E5E5E5"
+    tools:context="com.jefeko.apptwoway.ui.waytalk.WayTalkActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:weightSum="555">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:background="#e5e5e5">
+        </View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="48"
+            android:background="#ffffff">
+            <Button
+                android:id = "@+id/gumaecheo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="160"
+                android:text="구매처"
+                android:background="@drawable/btn_white">
+            </Button>
+            <Button
+                android:id = "@+id/panmaecheo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="160"
+                android:text="판매처"
+                android:textColor="@color/colorTextGray"
+                android:background="@drawable/btn_white">
+            </Button>
+            <Button
+                android:id = "@+id/member"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="160"
+                android:text="회원"
+                android:textColor="@color/colorTextGray"
+                android:background="@drawable/btn_white">
+            </Button>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:background="#e5e5e5">
+        </View>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="16"
+            android:background="#ffffff">
+        </View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="46"
+            android:background="#ffffff">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="480">
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="16">
+                </View>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="448">
+                    <LinearLayout
+                        android:id = "@+id/gumaecheo_search_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="448"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id = "@+id/search_gumaecheo_text"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dimen_37"
+                            android:layout_weight="412"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:lines="1"
+                            android:hint="구매처를 입력하세요."
+                            android:textSize="@dimen/dimen_14"
+                            android:textColor="#999999"
+                            android:background="@drawable/search_10"
+                            android:layout_gravity="center"/>
+                        <ImageButton
+                            android:id = "@+id/search_gumaecheo_btn"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dimen_37"
+                            android:layout_weight="36"
+                            android:background="@drawable/ic_search"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id = "@+id/panmaecheo_search_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="448"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id = "@+id/search_panmaecheo_text"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dimen_37"
+                            android:layout_weight="412"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:lines="1"
+                            android:hint="판매처를 입력하세요."
+                            android:textSize="@dimen/dimen_14"
+                            android:textColor="#999999"
+                            android:background="@drawable/search_10"
+                            android:layout_gravity="center"/>
+                        <ImageButton
+                            android:id = "@+id/search_panmaecheo_btn"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dimen_37"
+                            android:layout_weight="36"
+                            android:background="@drawable/ic_search"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id = "@+id/member_search_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="448"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id = "@+id/search_member_text"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dimen_37"
+                            android:layout_weight="412"
+                            android:paddingLeft="@dimen/dimen_5"
+                            android:lines="1"
+                            android:hint="이름을 입력하세요."
+                            android:textSize="@dimen/dimen_14"
+                            android:textColor="#999999"
+                            android:background="@drawable/search_10"
+                            android:layout_gravity="center"/>
+                        <ImageButton
+                            android:id = "@+id/search_member_btn"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dimen_37"
+                            android:layout_weight="36"
+                            android:background="@drawable/ic_search"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                </RelativeLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="16">
+                </View>
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="16"
+            android:background="#ffffff">
+        </View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="225"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/gumaecheo_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                </android.support.v7.widget.RecyclerView>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/panmaecheo_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+                </android.support.v7.widget.RecyclerView>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/member_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+                </android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

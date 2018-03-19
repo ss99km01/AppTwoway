@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+	[ 지원해상도 ]
+    mdpi(1024*600), hdpi(800*480), xhdpi(1280*720(1280*800))
+    
+	수치 산출 방식 다음과 같다.
+    GUI가 hdpi(800*480)를 기준으로 pixel로 가이드 되었으므로
+	이 수치를 세로 기준(480,600,720)동일 비율을 적용하는 것을 기본 원칙으로 한다.
+	예로, GUI에 240으로 가이드 되었다면
+
+    mdpi(300px(x1.25) => 300dp), hdpi(240px(x1.0) => 160dp), xhdpi(360px(x1.5) => 180dp)
+	중에서 해당(mdpi)되는 값을 적용한다.
+    
+    naming rule : <dimen name="dimen_[GUI 수치]">[dp변환 값]</dimen>
+    -->
+	<dimen name="dimen_m10">-12.50dp</dimen>
+
+	<dimen name="dimen_1">1.25dp</dimen>
+	<dimen name="dimen_2">2.50dp</dimen>
+	<dimen name="dimen_3">3.75dp</dimen>
+	<dimen name="dimen_5">6.25dp</dimen>
+	<dimen name="dimen_6">7.50dp</dimen>
+	<dimen name="dimen_8">10.00dp</dimen>
+	<dimen name="dimen_9">11.25dp</dimen>
+	<dimen name="dimen_10">12.50dp</dimen>
+	<dimen name="dimen_11">13.75dp</dimen>
+	<dimen name="dimen_12">15.00dp</dimen>
+	<dimen name="dimen_14">17.50dp</dimen>
+	<dimen name="dimen_15">18.75dp</dimen>
+	<dimen name="dimen_16">20.00dp</dimen>
+	<dimen name="dimen_17">21.25dp</dimen>
+	<dimen name="dimen_18">22.50dp</dimen>
+	<dimen name="dimen_19">23.75dp</dimen>
+	<dimen name="dimen_20">25.00dp</dimen>
+	<dimen name="dimen_21">26.25dp</dimen>
+	<dimen name="dimen_22">27.5dp</dimen>
+	<dimen name="dimen_23">28.75dp</dimen>
+	<dimen name="dimen_24">30.00dp</dimen>
+	<dimen name="dimen_25">31.25dp</dimen>
+	<dimen name="dimen_26">32.50dp</dimen>
+	<dimen name="dimen_28">35.00dp</dimen>
+	<dimen name="dimen_29">36.25dp</dimen>
+	<dimen name="dimen_30">37.5dp</dimen>
+	<dimen name="dimen_32">40.00dp</dimen>
+	<dimen name="dimen_34">42.50dp</dimen>
+	<dimen name="dimen_36">45.00dp</dimen>
+	<dimen name="dimen_37">46.25dp</dimen>
+	<dimen name="dimen_39">48.75dp</dimen>
+	<dimen name="dimen_40">50.00dp</dimen>	
+	<dimen name="dimen_42">52.50dp</dimen>
+	<dimen name="dimen_44">55.00dp</dimen>
+	<dimen name="dimen_48">60.00dp</dimen>
+	<dimen name="dimen_50">62.50dp</dimen>
+	<dimen name="dimen_55">68.75dp</dimen>
+	<dimen name="dimen_56">70.00dp</dimen>
+	<dimen name="dimen_58">72.50dp</dimen>
+	<dimen name="dimen_60">75.00dp</dimen>
+	<dimen name="dimen_67">83.75dp</dimen>
+	<dimen name="dimen_68">85.00dp</dimen>
+	<dimen name="dimen_70">87.50dp</dimen>
+	<dimen name="dimen_72">90.00dp</dimen>
+	<dimen name="dimen_76">95.00dp</dimen>
+	<dimen name="dimen_80">100.00dp</dimen>
+	<dimen name="dimen_86">107.50dp</dimen>
+	<dimen name="dimen_100">125.00dp</dimen>
+	<dimen name="dimen_102">127.50dp</dimen>
+	<dimen name="dimen_106">132.05dp</dimen>
+	<dimen name="dimen_110">137.50dp</dimen>
+	<dimen name="dimen_113">141.25dp</dimen>
+	<dimen name="dimen_125">156.25dp</dimen>
+	<dimen name="dimen_129">161.25dp</dimen>
+	<dimen name="dimen_136">170.00dp</dimen>
+	<dimen name="dimen_142">177.50dp</dimen>
+	<dimen name="dimen_146">182.50dp</dimen>
+	<dimen name="dimen_148">185.00dp</dimen>
+	<dimen name="dimen_172">215.00dp</dimen>
+	<dimen name="dimen_225">281.25dp</dimen>
+	<dimen name="dimen_448">560dp</dimen>
+	
+	<dimen name="dimen_355">443.75dp</dimen>
+	<dimen name="dimen_395">493.75dp</dimen>	
+	<dimen name="dimen_552">690.00dp</dimen>
+	<dimen name="dimen_658">822.50dp</dimen>
+	<dimen name="dimen_732">915.00dp</dimen>
+	<dimen name="dimen_756">945.00dp</dimen>
+	
+</resources>

@@ -1,0 +1,27 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E5E5E5"
+    tools:context="com.jefeko.apptwoway.ui.waytalk.WayTalkActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:weightSum="555">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:background="#e5e5e5">
+        </View>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/history_listview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="547"
+            android:divider="@drawable/logout_line">
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+</FrameLayout>

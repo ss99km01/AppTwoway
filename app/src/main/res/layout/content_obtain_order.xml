@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e5e5e5"
+    android:orientation="vertical"
+    android:gravity="center"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.jefeko.apptwoway.ui.order.OrderManageActivity">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="168"
+        android:weightSum="168"
+        android:background="#e5e5e5" >
+
+        <include
+            layout="@layout/layout_common_top"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="72"
+            android:layout_marginBottom="1dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:background="#FFFFFF"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:layout_marginBottom="1dp"
+            android:textStyle="bold"
+            android:layout_weight="48"
+            android:text="@string/obtain_order_manage"/>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/obtain_order_tab"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#FFFFFF"
+            app:tabIndicatorColor="#FFFFFF"
+            app:tabTextColor="#999999"
+            app:tabSelectedTextColor="#000000"
+            app:tabPadding="1dp"
+            app:tabMode="fixed"
+            android:layout_weight="48"
+            app:tabGravity="fill"/>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/obtain_order_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="530"/>
+</LinearLayout>
+
+

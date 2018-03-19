@@ -1,0 +1,315 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_row"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:paddingTop="@dimen/dimen_12"
+    android:paddingBottom="@dimen/dimen_12"
+    android:orientation="vertical">
+
+    <!-- 상대방 메시지 -->
+    <LinearLayout
+        android:id="@+id/mms_e_Layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:id = "@+id/profile"
+            android:layout_marginLeft="@dimen/dimen_16"
+            android:layout_width="@dimen/dimen_50"
+            android:layout_height="@dimen/dimen_50"
+            android:background="@drawable/ic_profile_on" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/mms_e_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_5"
+                android:text="홍길동 과장"
+                android:textSize="@dimen/dimen_14"
+                android:textColor="#999999"
+                android:gravity="center_vertical|start" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/word_24_1"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:layout_marginRight="@dimen/dimen_10"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/mms_e_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="250dp"
+                    android:paddingLeft="@dimen/dimen_8"
+                    android:paddingRight="@dimen/dimen_8"
+                    android:paddingBottom="@dimen/dimen_16"
+                    android:text="이걸로는 힘들어 보이는구만"
+                    android:textSize="@dimen/dimen_14"
+                    android:textColor="#000000"
+                    android:gravity="center_vertical|left" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/mms_e_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="오후 3:23"
+            android:textSize="@dimen/dimen_14"
+            android:textColor="#000000"
+            android:layout_gravity="bottom"
+            android:gravity="left|bottom" />
+    </LinearLayout>
+    <!--<LinearLayout
+        android:id="@+id/mms_e_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_102"
+        android:weightSum="480"
+        >
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="16">
+        </View>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="448">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="102"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="40"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="448">
+                        <ImageView
+                            android:id = "@+id/profile"
+                            android:layout_width="@dimen/dimen_40"
+                            android:layout_height="@dimen/dimen_40"
+                            android:background="@drawable/ic_profile_on"
+                            android:layout_gravity="center">
+                        </ImageView>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="16">
+                        </View>
+                        <TextView
+                            android:id="@+id/mms_e_name"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="432"
+                            android:text="홍길동 과장"
+                            android:textSize="@dimen/dimen_14"
+                            android:textColor="#999999"
+                            android:gravity="center_vertical|left">
+                        </TextView>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="38"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="448">
+                        <View
+                            android:layout_width="@dimen/dimen_40"
+                            android:layout_height="match_parent">
+                        </View>
+
+                        <TextView
+                            android:id="@+id/mms_e_text"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="348"
+                            android:background="@drawable/word_24_1"
+                            android:gravity="left"
+                            android:padding="@dimen/dimen_10"
+                            android:text="이걸로는 힘들어 보이는구만"
+                            android:textSize="@dimen/dimen_14">
+                        </TextView>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="8">
+                        </View>
+                        <TextView
+                            android:id="@+id/mms_e_time"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="92"
+                            android:text="오후 3:23"
+                            android:textSize="@dimen/dimen_14"
+                            android:textColor="#000000"
+                            android:gravity="left|bottom">
+                        </TextView>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="22"
+                android:orientation="vertical">
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="16">
+        </View>
+    </LinearLayout>-->
+
+
+    <!-- 본인 메시지 -->
+    <LinearLayout
+        android:id="@+id/mms_m_Layout"
+        android:padding="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:layout_gravity="end">
+        <TextView
+            android:id="@+id/mms_m_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="오후 3:23"
+            android:textSize="@dimen/dimen_14"
+            android:textColor="#000000"
+            android:layout_gravity="bottom"
+            android:gravity="right|bottom" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/word_24_2"
+            android:layout_marginLeft="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/mms_m_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="250dp"
+                android:paddingLeft="@dimen/dimen_8"
+                android:paddingRight="@dimen/dimen_8"
+                android:text="뭔가 찜짐해"
+                android:textSize="@dimen/dimen_14"
+                android:textColor="#000000"
+                android:gravity="center_vertical|right" />
+            <TextView
+                android:id="@+id/mms_m_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="읽음"
+                android:textStyle="bold"
+                android:textSize="@dimen/dimen_12"
+                android:textColor="@color/colorAccent"
+                android:paddingLeft="@dimen/dimen_5" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--<LinearLayout
+        android:id="@+id/mms_m_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_76"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:weightSum="480">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="16">
+        </View>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="448">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="76">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="48"
+                    android:orientation="horizontal">
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8">
+                    </View>
+                    <TextView
+                        android:id="@+id/mms_m_time"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="92"
+                        android:text="오후 3:23"
+                        android:textSize="@dimen/dimen_14"
+                        android:textColor="#000000"
+                        android:gravity="right|bottom">
+                    </TextView>
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="348">
+                        <TextView
+                            android:id="@+id/mms_m_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="뭔가 찜짐해"
+                            android:textSize="@dimen/dimen_14"
+                            android:textColor="#000000"
+                            android:gravity="center_vertical|right"
+                            android:background="@drawable/word_24_2">
+                        </TextView>
+                        <TextView
+                            android:id="@+id/mms_m_check"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="읽음"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/dimen_12"
+                            android:textColor="@color/colorAccent"
+                            android:layout_alignParentBottom="true"
+                            android:paddingLeft="@dimen/dimen_5">
+                        </TextView>
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="22"
+                    android:orientation="vertical">
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="16">
+        </View>
+    </LinearLayout>-->
+
+</LinearLayout>

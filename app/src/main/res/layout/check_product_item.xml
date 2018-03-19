@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_56"
+    android:background="@drawable/list_10_2"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/check_item_prod_name"
+        style="@style/Text_Center_Black_14"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="132"
+        android:background="@drawable/table_10_1" />
+
+    <TextView
+        android:id="@+id/check_item_unit"
+        style="@style/Text_Center_Black_14"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="116"
+        android:background="@drawable/table_10_2" />
+
+    <TextView
+        android:id="@+id/check_item_sell_price"
+        style="@style/Text_Center_Black_14"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="116"
+        android:background="@drawable/table_10_3" />
+
+    <TextView
+        android:id="@+id/check_item_amount"
+        style="@style/Text_Center_Black_14"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="116"
+        android:background="@drawable/table_10_4" />
+
+</LinearLayout>

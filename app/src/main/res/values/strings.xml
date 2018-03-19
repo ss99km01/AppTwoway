@@ -1,0 +1,238 @@
+<resources>
+    <string name="app_name">AppTwoway</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">환경설정</string>
+    <string name="waytalk">웨이톡</string>
+
+    <string name="back_btn_message">\'뒤로\'버튼을 한번 더 누르시면 종료됩니다.</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="obtain_order_manage">판매(수주)관리</string>
+    <string name="obtain_order_reg">판매(수주)등록</string>
+    <string name="obtain_order_list">판매(수주)내역</string>
+    <string name="order_manage">구매(발주)관리</string>
+    <string name="order_reg">구매(발주)등록</string>
+    <string name="order_list">구매(발주)내역</string>
+    <string name="waytalk_grup">그룹목록</string>
+    <string name="waytalk_history">대화목록</string>
+
+    <string name="btn_qr_code">바코드 스캔하기</string>
+    <string name="company_select">본사 선택하기</string>
+    <string name="btn_select">선택</string>
+    <string name="btn_more">보기</string>
+    <string name="btn_talk">대화하기</string>
+    <string name="btn_search_again">다시 검색하기</string>
+    <string name="btn_order">주문하기</string>
+    <string name="btn_print">인쇄하기</string>
+    <string name="btn_order_cancel">주문취소</string>
+    <string name="btn_reg_sell">판매등록하기</string>
+    <string name="btn_inquiry">조회하기</string>
+    <string name="btn_order_unprocessed">주문미처리</string>
+    <string name="btn_order_completed">주문완료처리</string>
+
+    <string name="logout"><u>로그아웃</u></string>
+    <string name="alert_title"><u>알림</u></string>
+    <string name="btn_ok"><u>확인</u></string>
+    <string name="btn_cancel"><u>취소</u></string>
+
+    <!--  url -->
+    <string name="business_agree"><u><![CDATA[http://www.webtwoway.com/join/business_agree]]></u></string>
+    <string name="findPassword"><u><![CDATA[http://www.webtwoway.com/findPassword]]></u></string>
+    <string name="homepage"><u><![CDATA["http://www.webtwoway.com/main]]></u></string>
+
+
+    <!-- 알림 메세지 -->
+    <string name="login_faild"><u>로그인중 오류가 발생하였습니다.</u></string>
+    <string name="id_faild"><u>아이디를 입력하세요.</u></string>
+    <string name="pass_faild"><u>패스워드를 입력하세요.</u></string>
+    <string name="faild"><u>통신중 오류가 발생 하였습니다.</u></string>
+    <string name="setting_select_faild"><u>설정 조회 중 오류가 발생하였습니다.</u></string>
+    <string name="push_setting_faild"><u>설정 중 오류가 발생하였습니다.</u></string>
+    <string name="order_cancel_message">※ 주문취소는 판매처에서 주문확인을 하지 않았을 경우에만 가능합니다.</string>
+    <string name="search_field_input_faild">검색어를 입력하세요.</string>
+    <string name="search_faild">검색 중 오류가 발생하였습니다.</string>
+    <string name="search_not_found">검색 결과가 존재하지 않습니다.</string>
+    <string name="order_success">정상적으로 주문이 완료 되었습니다.</string>
+    <string name="order_fail">주문 중 오류가 발생하였습니다.</string>
+    <string name="order_cancel">정상적으로 주문이 취소 되었습니다.</string>
+    <string name="order_cancel_fail">주문이 취소중 오류가 발상하였습니다.</string>
+    <string name="order_status_change">정상적으로 주문상태가 변경되었습니다.</string>
+
+
+    <!-- 변수네임 -->
+    <!-- 사용자 아이디 -->
+    <string name="USER_ID"><![CDATA[user_id]]></string>
+    <!-- 사용자 패스워드 -->
+    <string name="USER_PASS"><![CDATA[password]]></string>
+    <!-- 푸쉬 토큰 -->
+    <string name="PUSH_TOKEN"><![CDATA[push_token]]></string>
+    <!-- 아이디 저장 -->
+    <string name="ID_SAVE"><![CDATA[id_save]]></string>
+    <!-- 자동로그인 -->
+    <string name="AUTO_LOGIN"><![CDATA[auto_login]]></string>
+    <!-- 회사아이디 -->
+    <string name="COMPANY_ID"><![CDATA[company_id]]></string>
+    <!-- 회사명 -->
+    <string name="COMPANY_NAME"><![CDATA[company_name]]></string>
+    <!-- 프린터 설정여부 -->
+    <string name="PRINTER_YN"><![CDATA[printer_yn]]></string>
+    <!-- 푸쉬 설정여부 -->
+    <string name="PUSH_YN"><![CDATA[push_yn]]></string>
+    <!-- 사업자 번호 -->
+    <string name="BUSINESS_NUMBER"><![CDATA[busi_no]]></string>
+    <!-- 대표자 -->
+    <string name="REPRESENTATIVE_NAME"><![CDATA[employee_name]]></string>
+    <!-- 전화번호 -->
+    <string name="TEL_NO"><![CDATA[tel_no]]></string>
+    <!-- 주소 -->
+    <string name="JUSO"><![CDATA[juso]]></string>
+    <!-- 우편번호 -->
+    <string name="ZIP"><![CDATA[zip]]></string>
+    <!-- 주소 -->
+    <string name="ADDR1"><![CDATA[addr1]]></string>
+    <!-- 상세주소 -->
+    <string name="ADDR2"><![CDATA[addr2]]></string>
+    <!-- 구매여부 -->
+    <string name="BUY_YN"><![CDATA[buy_yn]]></string>
+    <!-- 판매여부 -->
+    <string name="SELL_YN"><![CDATA[sell_yn]]></string>
+    <!-- 체인점여부 -->
+    <string name="CHAIN_YN"><![CDATA[chain_yn]]></string>
+    <!-- 사용여부 -->
+    <string name="USE_YN"><![CDATA[use_yn]]></string>
+    <!-- 회원이름 -->
+    <string name="MEMBER_NAME"><![CDATA[member_name]]></string>
+    <!-- 휴대폰번호(뒷자리) -->
+    <string name="CELL_NO"><![CDATA[cell_no]]></string>
+    <!-- 사용여부 -->
+    <string name="USE_TN"><![CDATA[use_yn]]></string>
+    <!-- 대상 회사 -->
+    <string name="PAL_COMPANY_ID"><![CDATA[pal_company_id]]></string>
+    <!-- 쪽지 받음 보냄 -->
+    <string name="MSG_S_R_CODE"><![CDATA[msg_s_r_code]]></string>
+    <!-- 쪽지 전송 -->
+    <string name="CONTENTS"><![CDATA[contents]]></string>
+
+
+    <!--API 정의 -->
+    <!-- 로그인 -->
+    <string name="api_login"><![CDATA[http://api.webtwoway.com/authentication]]></string>
+    <!-- 직원목록조회 -->
+    <string name="api_employeeList"><![CDATA[http://api.webtwoway.com/getEmployeeList]]></string>
+    <!-- 거래처목록조회 -->
+    <string name="api_customerList"><![CDATA[http://api.webtwoway.com/getCustomerList]]></string>
+    <!-- 회원목록조회 -->
+    <string name="api_memberList"><![CDATA[http://api.webtwoway.com/getMemberList]]></string>
+    <!-- 창고(배송지)목록조회 -->
+    <string name="api_storeList"><![CDATA[http://api.webtwoway.com/getStoreList]]></string>
+    <!-- 발주 터치키 상품분류 조회 -->
+    <string name="api_orderTouchKeyCategoryList"><![CDATA[http://api.webtwoway.com/getOrderTouchKeyCategoryList]]></string>
+    <!-- 발주 터치키 상품 조회 -->
+    <string name="api_orderTouchKeyProdList"><![CDATA[http://api.webtwoway.com/getOrderTouchKeyProdList]]></string>
+    <!-- 수주 터치키 상품분류 조회 -->
+    <string name="api_receiveOrderTouchKeyCategoryList"><![CDATA[http://api.webtwoway.com/getReceiveOrderTouchKeyCategoryList]]></string>
+    <!-- 수주 터치키 상품 조회 -->
+    <string name="api_receiveOrderTouchKeyProdList"><![CDATA[http://api.webtwoway.com/getReceiveOrderTouchKeyProdList]]></string>
+    <!-- 발주상품검색목록조회 -->
+    <string name="api_buyProdList"><![CDATA[http://api.webtwoway.com/getBuyProdList]]></string>
+    <!-- 수주상품검색목록조회 -->
+    <string name="api_sellProdList"><![CDATA[http://api.webtwoway.com/getSellProdList]]></string>
+    <!-- 주문전송 -->
+    <string name="api_sendOrder"><![CDATA[http://api.webtwoway.com/sendOrder]]></string>
+    <!-- 발주목록조회 -->
+    <string name="api_orderList"><![CDATA[http://api.webtwoway.com/getOrderList]]></string>
+    <!-- 수주목록조회 -->
+    <string name="api_receiveOrderList"><![CDATA[http://api.webtwoway.com/getReceiveOrderList]]></string>
+    <!-- 수주목록수조회 -->
+    <string name="api_receiveOrderListCount"><![CDATA[http://api.webtwoway.com/getReceiveOrderListCount]]></string>
+    <!-- 주문상품목록조회 -->
+    <string name="api_orderProductList"><![CDATA[http://api.webtwoway.com/getOrderProductList]]></string>
+    <!-- 주문수정 -->
+    <string name="api_setOrder"><![CDATA[http://api.webtwoway.com/setOrder]]></string>
+    <!-- 공통코드목록조회 -->
+    <string name="api_commonCodeList"><![CDATA[http://api.webtwoway.com/getCommonCodeList]]></string>
+    <!-- 환경설정입력 -->
+    <string name="api_setAppSetting"><![CDATA[http://api.webtwoway.com/setAppSetting]]></string>
+    <!-- 환경설정조회 -->
+    <string name="api_getAppSetting"><![CDATA[http://api.webtwoway.com/getAppSetting]]></string>
+    <!-- 쪽지함 -->
+    <string name="api_msgList"><![CDATA[http://api.webtwoway.com/msgList]]></string>
+    <!--<string name="api_msgList"><![CDATA[http://192.168.0.6:8080/msgList]]></string>-->
+    <!-- 쪽지함삭제 -->
+    <string name="api_delMsg"><![CDATA[http://api.webtwoway.com/delMsg]]></string>
+    <!--<string name="api_delMsg"><![CDATA[http://192.168.0.6:8080/delMsg]]></string>-->
+    <!-- 쪽지함상세리스트 -->
+    <string name="api_msgInfoList"><![CDATA[http://api.webtwoway.com/msgInfoList]]></string>
+    <!--<string name="api_msgInfoList"><![CDATA[http://192.168.0.6:8080/msgInfoList]]></string>-->
+    <!-- 쪽지보내기 -->
+    <string name="api_sendMsg"><![CDATA[http://api.webtwoway.com/sendMsg]]></string>
+    <!--<string name="api_sendMsg"><![CDATA[http://192.168.0.6:8080/sendMsg]]></string>-->
+    <!-- 쪽지읽기 -->
+    <string name="api_readMsg"><![CDATA[http://api.webtwoway.com/readMsg]]></string>
+    <!--<string name="api_readMsg"><![CDATA[http://192.168.0.6:8080/readMsg]]></string>-->
+    <!-- 기업정보 -->
+    <string name="api_selectCompanyInfo"><![CDATA[http://api.webtwoway.com/selectCompanyInfo]]></string>
+    <!--<string name="api_selectCompanyInfo"><![CDATA[http://192.168.0.6:8080/selectCompanyInfo]]></string>-->
+
+
+    <!-- API 리턴 -->
+    <!-- 로그인 -->
+    <string name="REQUEST_API_LOGIN"><![CDATA[api_login]]></string>
+    <!-- 직원목록조회 -->
+    <string name="REQUEST_API_EMPLOYEELIST"><![CDATA[api_employeeList]]></string>
+    <!-- 거래처목록조회 -->
+    <string name="REQUEST_API_CUSTOMERLIST"><![CDATA[api_customerList]]></string>
+    <!-- 본사조회 -->
+    <string name="REQUEST_API_HEADQUARTERS"><![CDATA[api_headQuarters]]></string>
+    <!-- 회원목록조회 -->
+    <string name="REQUEST_API_MEMBERLIST"><![CDATA[api_memberList]]></string>
+    <!-- 창고(배송지)목록조회 -->
+    <string name="REQUEST_API_STORELIST"><![CDATA[api_storeList]]></string>
+    <!-- 발주 터치키 상품분류 조회 -->
+    <string name="REQUEST_API_ORDERTOUCHKEYCATEGORYLIST"><![CDATA[api_orderTouchKeyCategoryList]]></string>
+    <!-- 발주 터치키 상품 조회 -->
+    <string name="REQUEST_API_ORDERTOUCHKEYPRODLIST"><![CDATA[api_orderTouchKeyProdList]]></string>
+    <!-- 수주 터치키 상품분류 조회 -->
+    <string name="REQUEST_API_RECEIVEORDERTOUCHKEYCATEGORYLIST"><![CDATA[api_receiveOrderTouchKeyCategoryList]]></string>
+    <!-- 수주 터치키 상품 조회 -->
+    <string name="REQUEST_API_RECEIVEORDERTOUCHKEYPRODLIST"><![CDATA[api_receiveOrderTouchKeyProdList]]></string>
+    <!-- 발주상품검색목록조회 -->
+    <string name="REQUEST_API_BUYPRODLIST"><![CDATA[api_buyProdList]]></string>
+    <!-- 수주상품검색목록조회 -->
+    <string name="REQUEST_API_SELLPRODLIST"><![CDATA[api_sellProdList]]></string>
+    <!-- 주문전송 -->
+    <string name="REQUEST_API_SENDORDER"><![CDATA[api_sendOrder]]></string>
+    <!-- 주문전송 -->
+    <string name="REQUEST_API_SENDORDER_UPDATE"><![CDATA[api_sendOrder_update]]></string>
+    <!-- 발주목록조회 -->
+    <string name="REQUEST_API_ORDERLIST"><![CDATA[api_orderList]]></string>
+    <!-- 수주목록조회 -->
+    <string name="REQUEST_API_RECEIVEORDERLIST"><![CDATA[api_receiveOrderList]]></string>
+    <!-- 수주목록수조회 -->
+    <string name="REQUEST_API_RECEIVEORDERLISTCOUNT"><![CDATA[api_receiveOrderListCount]]></string>
+    <!-- 주문상품목록조회 -->
+    <string name="REQUEST_API_ORDERPRODUCTLIST"><![CDATA[api_orderProductList]]></string>
+    <!-- 주문수정 -->
+    <string name="REQUEST_API_SETORDER"><![CDATA[api_setOrder]]></string>
+    <!-- 공통코드목록조회 -->
+    <string name="REQUEST_API_COMMONCODELIST"><![CDATA[api_commonCodeList]]></string>
+    <!-- 환경설정입력 -->
+    <string name="REQUEST_API_SETAPPSETTING"><![CDATA[api_setAppSetting]]></string>
+    <!-- 환경설정조회 -->
+    <string name="REQUEST_API_GETAPPSETTING"><![CDATA[api_getAppSetting]]></string>
+    <!-- 쪽지함 -->
+    <string name="REQUEST_API_MSGLIST"><![CDATA[api_msgList]]></string>
+    <!-- 쪽지함삭제 -->
+    <string name="REQUEST_API_DELMSG"><![CDATA[api_delMsg]]></string>
+    <!-- 쪽지함상세리스트 -->
+    <string name="REQUEST_API_MSGINFOLIST"><![CDATA[api_msgInfoList]]></string>
+    <!-- 쪽지보내기 -->
+    <string name="REQUEST_API_SENDMSG"><![CDATA[api_sendMsg]]></string>
+    <!-- 쪽지읽기 -->
+    <string name="REQUEST_API_READMSG"><![CDATA[api_readMsg]]></string>
+    <!-- 기업정보 -->
+    <string name="REQUEST_API_SELECTCOMPANYINFO"><![CDATA[api_selectCompanyInfo]]></string>
+</resources>

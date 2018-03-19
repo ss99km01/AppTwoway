@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "882226517450",
+    "firebase_url": "https://subalju-app.firebaseio.com",
+    "project_id": "subalju-app",
+    "storage_bucket": "subalju-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882226517450:android:5e4665aa19abd444",
+        "android_client_info": {
+          "package_name": "com.jefeko.apptwoway"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882226517450-oqblh1e497recdfjpojl4sc19td9klra.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jefeko.apptwoway",
+            "certificate_hash": "6686e4fc203c788a43ebe36e2ff1f70d61a1b68a"
+          }
+        },
+        {
+          "client_id": "882226517450-0hb6etm9uut0i5fp0ii0pdnqkbkgvdll.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhYI6jOigmSpaPE44WsYq_FwenT6wd52c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882226517450-0hb6etm9uut0i5fp0ii0pdnqkbkgvdll.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

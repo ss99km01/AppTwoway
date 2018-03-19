@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e5e5e5"
+    android:orientation="vertical"
+    android:gravity="center"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.jefeko.apptwoway.ui.setting.SettingActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="652">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:background="#e5e5e5">
+        </View>
+        <ImageButton
+            android:id = "@+id/warehouse_mgt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="56"
+            android:background="@drawable/btn_01_25">
+        </ImageButton>
+        <ImageButton
+            android:id = "@+id/classification_mgt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="56"
+            android:background="@drawable/btn_02_25">
+        </ImageButton>
+        <ImageButton
+            android:id = "@+id/product_mgt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="56"
+            android:background="@drawable/btn_03_25">
+        </ImageButton>
+        <ImageButton
+            android:id = "@+id/purchase_mgt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="56"
+            android:background="@drawable/btn_04_25">
+        </ImageButton>
+        <ImageButton
+            android:id = "@+id/salesdepartment_mgt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="56"
+            android:background="@drawable/btn_05_25">
+        </ImageButton>
+    </LinearLayout>
+</LinearLayout>
+
+
