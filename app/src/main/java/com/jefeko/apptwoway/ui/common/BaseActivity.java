@@ -89,7 +89,8 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         top_company_name = (TextView) toolbar.findViewById(R.id.top_company_name);
 
         user_info_name.setText(PreferenceUtils.getPreferenceValueOfString(this, getString(R.string.COMPANY_NAME)));
-        top_company_name.setText(PreferenceUtils.getPreferenceValueOfString(this, getString(R.string.COMPANY_NAME)));
+        top_company_name.setText(PreferenceUtils.getPreferenceValueOfString(this, getString(R.string.COMPANY_NAME))+"  "+
+                PreferenceUtils.getPreferenceValueOfString(this, getString(R.string.REPRESENTATIVE_NAME)));
 
         login_check.setOnClickListener(this);
         close.setOnClickListener(this);
@@ -172,7 +173,10 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_check:
-                openActivity(LoginActivity.class);
+                PreferenceUtils.setPreferenceValue(this, getString(R.string.AUTO_LOGIN),false);
+                PreferenceUtils.setPreferenceValue(this, getString(R.string.ID_SAVE),false);
+                openTopActivity(LoginActivity.class);
+                finish();
                 break;
             case R.id.close:
                 drawer.closeDrawer(GravityCompat.START);
@@ -204,7 +208,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         if (drawer!= null && drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if ( getClass().getName().equals(MainActivity.class.getName()) ) {
+            if ( getClass().getName().equals(MainActivity.class.getName()) || getClass().getName().equals(LoginActivity.class.getName())) {
                 mBackPressUtil.onBackPressed();
             } else {
                 super.onBackPressed();

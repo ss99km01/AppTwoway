@@ -381,14 +381,17 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
             } else if (getString(R.string.REQUEST_API_SENDORDER_UPDATE).equals(code)) {
                 processSendOrderUpdate(obj);
             } else if(code.equals(getString(R.string.REQUEST_API_GETAPPSETTING))) {
+                if (!obj.isNull("appSetting")) {
                     JSONObject content = obj.getJSONObject("appSetting");
-
                     if (content != null) {
                         printer_yn = content.getString("printer_yn");
                     } else {
                         printer_yn = "N";
                     }
+                } else {
+                    printer_yn = "N";
                 }
+            }
 //            } else if (code.contains(getString(R.string.REQUEST_API_ORDERPRODUCTLIST))) {
 //                code = code.replace(getString(R.string.REQUEST_API_ORDERPRODUCTLIST), "");
 //                processInsertProdList(obj, Integer.valueOf(code));

@@ -53,6 +53,7 @@ public class LoginActivity extends BaseActivity{
         mContext = this;
 
         initEvent();
+        initialize();
 
         if(PreferenceUtils.getPreferenceValueOfBoolean(this, getString(R.string.AUTO_LOGIN))){
             user_id.setText(PreferenceUtils.getPreferenceValueOfString(this, getString(R.string.USER_ID)));
@@ -61,6 +62,7 @@ public class LoginActivity extends BaseActivity{
             auto_login_check = true;
             id_save.setBackgroundResource(R.drawable.ic_check_pressed);
             auto_login.setBackgroundResource(R.drawable.ic_check_pressed);
+            doLogin();
         }else{
             if(PreferenceUtils.getPreferenceValueOfBoolean(this, getString(R.string.ID_SAVE))){
                 user_id.setText(PreferenceUtils.getPreferenceValueOfString(this, getString(R.string.USER_ID)));
@@ -82,9 +84,9 @@ public class LoginActivity extends BaseActivity{
 //        user_id.setText("testh01");
 //        user_pass.setText("testh01!");
 //        user_id.setText("jfk3734");
-//        user_pass.setText("posmoa3000*!");
+//        user_pass.setText("posmoa3000*");
 
-        initialize();
+
 //        doLogin();
     }
 
@@ -218,8 +220,6 @@ public class LoginActivity extends BaseActivity{
         }
 
     }
-
-
 
     protected void openActivity(Class<?> activity) {
         startActivity(new Intent(this, activity));

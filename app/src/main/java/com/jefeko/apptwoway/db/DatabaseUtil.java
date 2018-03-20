@@ -75,8 +75,8 @@ public class DatabaseUtil {
 	 * @author ejlee
 	 */
 	private static class OpenHelper extends SQLiteOpenHelper {		
-		private static final String DATABASE_NAME = ServiceCommon.DB_PATH;
-//		private static final String DATABASE_NAME = "Apptwoway.db";
+//		private static final String DATABASE_NAME = ServiceCommon.DB_PATH;
+		private static final String DATABASE_NAME = "Apptwoway.db";
 		public boolean mIsUpgrade = false;
 		
 		/**

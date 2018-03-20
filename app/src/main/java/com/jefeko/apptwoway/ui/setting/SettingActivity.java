@@ -137,25 +137,32 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             JSONObject obj = new JSONObject(response);
 
             if(code.equals(getString(R.string.REQUEST_API_GETAPPSETTING))) {
-                JSONObject content = obj.getJSONObject("appSetting");
+                if (!obj.isNull("appSetting")){
+                    JSONObject content = obj.getJSONObject("appSetting");
 
-                if(content != null) {
-                    if (content.getString("push_yn").equals("Y")) {
-                        push_btn.setBackgroundResource(R.drawable.ic_on);
-                        push_check = true;
+                    if(content != null) {
+                        if (content.getString("push_yn").equals("Y")) {
+                            push_btn.setBackgroundResource(R.drawable.ic_on);
+                            push_check = true;
+                        } else {
+                            push_btn.setBackgroundResource(R.drawable.ic_off);
+                            push_check = false;
+                        }
+
+                        if (content.getString("printer_yn").equals("Y")) {
+                            print_btn.setBackgroundResource(R.drawable.ic_on);
+                            print_check = true;
+                        } else {
+                            print_btn.setBackgroundResource(R.drawable.ic_off);
+                            print_check = false;
+                        }
                     } else {
                         push_btn.setBackgroundResource(R.drawable.ic_off);
                         push_check = false;
-                    }
-
-                    if (content.getString("printer_yn").equals("Y")) {
-                        print_btn.setBackgroundResource(R.drawable.ic_on);
-                        print_check = true;
-                    } else {
                         print_btn.setBackgroundResource(R.drawable.ic_off);
                         print_check = false;
                     }
-                }else{
+                } else{
                     push_btn.setBackgroundResource(R.drawable.ic_off);
                     push_check = false;
                     print_btn.setBackgroundResource(R.drawable.ic_off);

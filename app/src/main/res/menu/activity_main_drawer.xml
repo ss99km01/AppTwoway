@@ -21,7 +21,7 @@
             android:title="기초관리" />
         <item
             android:id="@+id/nav_setting"
-            android:title="환셩설정" />
+            android:title="환경설정" />
     </group>
 
 </menu>
