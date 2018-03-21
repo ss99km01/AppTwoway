@@ -164,15 +164,32 @@
                         android:layout_height="0dp"
                         android:layout_weight="36">
                     </View>
-                    <TextView
-                        android:id="@+id/id_pass_search"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="32"
-                        android:text="아이디/비밀번호 찾기"
-                        android:textSize="@dimen/dimen_16"
-                        android:textColor="#0068b7"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="center">
+                        <TextView
+                            android:id="@+id/id_search"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="아이디 찾기"
+                            android:textSize="@dimen/dimen_16"
+                            android:textColor="#0068b7"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text=" / "
+                            android:textSize="@dimen/dimen_16"
+                            android:textColor="#0068b7"/>
+                        <TextView
+                            android:id="@+id/pass_search"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="비밀번호 찾기"
+                            android:textSize="@dimen/dimen_16"
+                            android:textColor="#0068b7"/>
+                    </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0dp"

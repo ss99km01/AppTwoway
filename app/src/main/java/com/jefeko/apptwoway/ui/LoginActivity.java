@@ -37,7 +37,8 @@ public class LoginActivity extends BaseActivity{
     @BindView(R.id.id_save) ImageView id_save;                     //아이디 저장
     @BindView(R.id.auto_login) ImageView auto_login;              //자동로그인
     @BindView(R.id.login_btn) ImageButton login_btn;              //로그인 버튼
-    @BindView(R.id.id_pass_search) TextView id_pass_search;     //아이디/패스워드 찾기
+    @BindView(R.id.id_search) TextView id_search;     //아이디/패스워드 찾기
+    @BindView(R.id.pass_search) TextView pass_search;     //아이디/패스워드 찾기
     @BindView(R.id.user_save) ImageButton user_save;              //회원가입
     @BindView(R.id.homepage) Button homepage;                     //홈페이지
 
@@ -95,7 +96,8 @@ public class LoginActivity extends BaseActivity{
         auto_login.setOnClickListener(this);
         login_btn.setOnClickListener(this);
         user_save.setOnClickListener(this);
-        id_pass_search.setOnClickListener(this);
+        id_search.setOnClickListener(this);
+        pass_search.setOnClickListener(this);
         homepage.setOnClickListener(this);
     }
 
@@ -137,7 +139,12 @@ public class LoginActivity extends BaseActivity{
 
                 startActivity(intent);
                 break;
-            case R.id.id_pass_search:
+            case R.id.id_search:
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.findId)));
+
+                startActivity(intent);
+                break;
+            case R.id.pass_search:
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.findPassword)));
 
                 startActivity(intent);

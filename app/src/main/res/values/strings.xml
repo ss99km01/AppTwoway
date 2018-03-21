@@ -40,6 +40,7 @@
 
     <!--  url -->
     <string name="business_agree"><u><![CDATA[http://www.webtwoway.com/join/business_agree]]></u></string>
+    <string name="findId"><u><![CDATA[http://www.webtwoway.com/findId]]></u></string>
     <string name="findPassword"><u><![CDATA[http://www.webtwoway.com/findPassword]]></u></string>
     <string name="homepage"><u><![CDATA["http://www.webtwoway.com/main]]></u></string>
 

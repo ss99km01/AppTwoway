@@ -132,10 +132,10 @@ public class ObtainOrderManageActivity extends BaseActivity {
         sendRequest(getString(R.string.REQUEST_API_HEADQUARTERS), getString(R.string.api_customerList), values);
     }
 
-    public void requestGetReceiveOrderTouchKeyCategoryList(String selCompanyID, String chainYN) {
+    public void requestGetReceiveOrderTouchKeyCategoryList(String buyCompanyID, String chainYN) {
         Map<String, String> values = new HashMap<>();
-        values.put("buy_company_id", ServiceCommon.COMPANY_ID);
-        values.put("sell_company_id", selCompanyID);
+        values.put("buy_company_id", buyCompanyID);
+        values.put("sell_company_id", ServiceCommon.COMPANY_ID);
         values.put("chain_yn", chainYN);
         sendRequest(getString(R.string.REQUEST_API_RECEIVEORDERTOUCHKEYCATEGORYLIST), getString(R.string.api_receiveOrderTouchKeyCategoryList), values);
     }
