@@ -26,7 +26,8 @@
 	<dimen name="dimen_9">6.75dp</dimen>
 	<dimen name="dimen_10">7.50dp</dimen>
 	<dimen name="dimen_11">8.25dp</dimen>
-	<dimen name="dimen_12">9.00dp</dimen>	
+	<dimen name="dimen_12">9.00dp</dimen>
+	<dimen name="dimen_13">9.75dp</dimen>
 	<dimen name="dimen_14">10.50dp</dimen>
 	<dimen name="dimen_15">11.25dp</dimen>
 	<dimen name="dimen_16">12.00dp</dimen>

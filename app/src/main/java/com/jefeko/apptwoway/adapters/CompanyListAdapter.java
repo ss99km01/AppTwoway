@@ -73,6 +73,9 @@ public class CompanyListAdapter extends RecyclerView.Adapter<CompanyListAdapter.
 
     @Override
     public int getItemCount() {
+        if (companyList == null) {
+            return 0;
+        }
         return companyList.size();
     }
 

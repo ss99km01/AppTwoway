@@ -108,7 +108,7 @@ public class ObtainOrderManageActivity extends BaseActivity {
         Map<String, String> values = new HashMap<>();
         values.put(getString(R.string.COMPANY_ID), ServiceCommon.COMPANY_ID);
 //                values.put(getString(R.string.BUY_YN), "Y");
-//        values.put(getString(R.string.SELL_YN), "Y");
+        values.put(getString(R.string.SELL_YN), "Y");
         switch(index) {
             case SEARCH_BUSI_NO:
                 values.put(getString(R.string.BUSINESS_NUMBER), text);
@@ -140,20 +140,20 @@ public class ObtainOrderManageActivity extends BaseActivity {
         sendRequest(getString(R.string.REQUEST_API_RECEIVEORDERTOUCHKEYCATEGORYLIST), getString(R.string.api_receiveOrderTouchKeyCategoryList), values);
     }
 
-    public void requestGetReceiveOrderTouchKeyProdList(String selCompanyID, String chainYN, int index, String prodName) {
+    public void requestGetReceiveOrderTouchKeyProdList(String buyCompanyID, String chainYN, int index, String prodName) {
         Map<String, String> values = new HashMap<>();
-        values.put("buy_company_id", ServiceCommon.COMPANY_ID);
-        values.put("sell_company_id", selCompanyID);
+        values.put("buy_company_id", buyCompanyID);
+        values.put("sell_company_id", ServiceCommon.COMPANY_ID);
         values.put("chain_yn", chainYN);
         values.put("category_order", mProductCategory.get(index).getCategory_order());
         values.put("prod_name", prodName);
         sendRequest(getString(R.string.REQUEST_API_RECEIVEORDERTOUCHKEYPRODLIST), getString(R.string.api_receiveOrderTouchKeyProdList), values);
     }
 
-    public void requestGetSellProdList(String selCompanyID, String chainYN, String prodName) {
+    public void requestGetSellProdList(String buyCompanyID, String chainYN, String prodName) {
         Map<String, String> values = new HashMap<>();
-        values.put("buy_company_id", ServiceCommon.COMPANY_ID);
-        values.put("sell_company_id", selCompanyID);
+        values.put("buy_company_id", buyCompanyID);
+        values.put("sell_company_id", ServiceCommon.COMPANY_ID);
         values.put("chain_yn", chainYN);
         values.put("prod_name", prodName);
         sendRequest(getString(R.string.REQUEST_API_SELLPRODLIST), getString(R.string.api_sellProdList), values);
@@ -165,11 +165,11 @@ public class ObtainOrderManageActivity extends BaseActivity {
         sendRequest(getString(R.string.REQUEST_API_STORELIST), getString(R.string.api_storeList), values);
     }
 
-    public void requestSendOrder(String selCompanyID, String request, String orderPrice, int storeIndex, ArrayList<Product> prodList){
+    public void requestSendOrder(String buyCompanyID, String request, String orderPrice, int storeIndex, ArrayList<Product> prodList){
         Map<String, String> values = new HashMap<>();
         values.put("order_type_code", DEFAULT_ORDER_TYPE_CODE);
-        values.put("buy_company_id", ServiceCommon.COMPANY_ID);
-        values.put("sell_company_id", selCompanyID);
+        values.put("buy_company_id", buyCompanyID);
+        values.put("sell_company_id", ServiceCommon.COMPANY_ID);
         values.put("employee_id", ServiceCommon.EMPLOYEE_ID);
         values.put("request", request);
         values.put("order_price", orderPrice);
@@ -214,25 +214,24 @@ public class ObtainOrderManageActivity extends BaseActivity {
         sendRequest(getString(R.string.REQUEST_API_SETORDER), getString(R.string.api_setOrder), values);
     }
 
-    public void requestGetReceiveOrderList(int searchIndex, String start, String end) {
-        Log.e("ss99km01", "ss99km01 requestGetOrderList");
+    public void requestGetReceiveOrderList(int searchIndex, String orderTypeCode, String start, String end) {
         Map<String, String> values = new HashMap<>();
         values.put("company_id", ServiceCommon.COMPANY_ID);
+        values.put("order_type_code", orderTypeCode);
         values.put("order_ymd1", start);
         values.put("order_ymd2", end);
         switch(searchIndex) {
             case SEARCH_INDEX_0:
-                values.put("order_status_code", "003");
                 break;
             case SEARCH_INDEX_1:
+                values.put("order_status_code", "001");
+                break;
+            case SEARCH_INDEX_2:
                 values.put("order_status_code", "002");
                 break;
-//            case SEARCH_INDEX_2:
-//                values.put(getString(R.string.REPRESENTATIVE_NAME), text);
-//                break;
-//            case SEARCH_INDEX_3:
-//                values.put(getString(R.string.TEL_NO), text);
-//                break;
+            case SEARCH_INDEX_3:
+                values.put("order_status_code", "003");
+                break;
         }
         showProgress();
         sendRequest(getString(R.string.REQUEST_API_RECEIVEORDERLIST), getString(R.string.api_receiveOrderList), values);

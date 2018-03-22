@@ -48,6 +48,11 @@ public class ProductSelectAdapter extends RecyclerView.Adapter<ProductSelectAdap
         }
     }
 
+    public void clearItem() {
+        this.productList.clear();
+        notifyDataSetChanged();
+    }
+
     public Product getItem(int position) {
         return this.productList.get(position);
     }
@@ -86,7 +91,7 @@ public class ProductSelectAdapter extends RecyclerView.Adapter<ProductSelectAdap
     @Override
     public void onBindViewHolder(ProductHolder holder, final int position) {
         final Product product = getItem(position);
-        holder.tvProductName.setText(String.valueOf(product.getProd_name()+" "+product.getUnit()));
+        holder.tvProductName.setText(String.valueOf(product.getProd_name()+"  "+product.getAmount()+" "+product.getUnit()));
         holder.tvAmount.setText(String.valueOf(product.getAmount()));
         holder.btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +130,9 @@ public class ProductSelectAdapter extends RecyclerView.Adapter<ProductSelectAdap
 
     @Override
     public int getItemCount() {
+        if (productList == null) {
+            return 0;
+        }
         return productList.size();
     }
 

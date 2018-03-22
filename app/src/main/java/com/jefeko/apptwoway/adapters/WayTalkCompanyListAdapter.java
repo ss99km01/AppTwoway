@@ -68,6 +68,9 @@ public class WayTalkCompanyListAdapter extends RecyclerView.Adapter<WayTalkCompa
 
     @Override
     public int getItemCount() {
+        if (companyList == null) {
+            return 0;
+        }
         return companyList.size();
     }
 

@@ -11,6 +11,302 @@
         android:background="#FFFFFF"
         android:orientation="vertical">
 
+        <!-- 사업자 검색하기 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingLeft="@dimen/dimen_16"
+            android:paddingRight="@dimen/dimen_16"
+            android:layout_weight="216"
+            android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="16"
+                android:visibility="gone"/>
+            <TextView
+                style="@style/Text_Black_14"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:text="사업자 검색하기"
+                android:visibility="gone"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="16"
+                android:visibility="gone"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="36"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="@dimen/dimen_129"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_border"
+                    android:layout_marginRight="@dimen/dimen_16"
+                    >
+                    <Spinner
+                        android:id="@+id/spinner_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </Spinner>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/edt_search_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/search_bar"
+                    android:textSize="@dimen/dimen_14"
+                    android:paddingLeft="@dimen/dimen_8"
+                    android:singleLine="true"
+                    android:hint="사업자번호, 상호 등을 검색하세요."/>
+                <Button
+                    android:layout_width="@dimen/dimen_36"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_search"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="16"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="192"
+                android:gravity="center"
+                android:background="@drawable/table_border"
+                android:orientation="vertical">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="24"/>
+                <!-- 달력 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="36"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="64"/>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="140"
+                        android:background="@drawable/box_20"
+                        android:paddingLeft="@dimen/dimen_16"
+                        android:paddingRight="@dimen/dimen_6"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/tv_date_start"
+                            style="@style/Text_Center_Black_Bold_14"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="94"
+                            android:text="2018-01-01"/>
+                        <Button
+                            android:id="@+id/btn_date_start"
+                            android:layout_width="@dimen/dimen_24"
+                            android:layout_height="@dimen/dimen_24"
+                            android:background="@drawable/ic_20_schedule"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="36"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:text="~"/>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="140"
+                        android:background="@drawable/box_20"
+                        android:paddingLeft="@dimen/dimen_16"
+                        android:paddingRight="@dimen/dimen_6"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/tv_date_end"
+                            style="@style/Text_Center_Black_Bold_14"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="94"
+                            android:text="2018-01-01"/>
+                        <Button
+                            android:id="@+id/btn_date_end"
+                            android:layout_width="@dimen/dimen_24"
+                            android:layout_height="@dimen/dimen_24"
+                            android:background="@drawable/ic_20_schedule"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="64"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="24"/>
+                <!-- 체크박스
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="24"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/checkbox_20"/>
+                    <TextView
+                        style="@style/CheckBoxText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="미처리 조회"
+                        android:layout_marginLeft="@dimen/dimen_8"
+                        android:layout_marginRight="@dimen/dimen_15"/>
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/checkbox_20"/>
+                    <TextView
+                        style="@style/CheckBoxText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="완료 조회"
+                        android:layout_marginLeft="@dimen/dimen_8"
+                        android:layout_marginRight="@dimen/dimen_15"/>
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/checkbox_20"/>
+                    <TextView
+                        style="@style/CheckBoxText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="업체주문내역"
+                        android:layout_marginLeft="@dimen/dimen_8"
+                        android:layout_marginRight="@dimen/dimen_15"/>
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/checkbox_20"/>
+                    <TextView
+                        style="@style/CheckBoxText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="직접판매내역"
+                        android:layout_marginLeft="@dimen/dimen_8"/>
+                </LinearLayout>-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="24"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <RadioGroup
+                        android:id="@+id/radioGroup"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <RadioButton
+                            style="@style/CheckBoxText"
+                            android:button="@drawable/checkbox_20"
+                            android:id="@+id/radio0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text=" 전체" />
+
+                        <RadioButton
+                            style="@style/CheckBoxText"
+                            android:button="@drawable/checkbox_20"
+                            android:id="@+id/radio1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 발주" />
+
+                        <RadioButton
+                            style="@style/CheckBoxText"
+                            android:button="@drawable/checkbox_20"
+                            android:id="@+id/radio2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 수주" />
+
+                        <RadioButton
+                            style="@style/CheckBoxText"
+                            android:button="@drawable/checkbox_20"
+                            android:id="@+id/radio3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 수주취소" />
+
+                    </RadioGroup>
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup2"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <RadioButton
+                            style="@style/CheckBoxText"
+                            android:button="@drawable/checkbox_20"
+                            android:id="@+id/radio4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text=" 업체주문내역" />
+
+                        <RadioButton
+                            style="@style/CheckBoxText"
+                            android:button="@drawable/checkbox_20"
+                            android:id="@+id/radio5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 직접판매내역" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="24"/>
+                <Button
+                    android:id="@+id/btn_inquiry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="@string/btn_inquiry"
+                    style="@style/Text_Center_Black_Bold_14"
+                    android:background="@drawable/btn_white"
+                    android:layout_weight="36"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="24"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="24"/>
+        </LinearLayout>
         <!-- 상품주문 내역 -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,7 +349,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="80"
-                android:text="판매처"/>
+                android:text="구매처"/>
             <TextView
                 style="@style/Text_Center_Black_14"
                 android:layout_width="0dp"
@@ -83,7 +379,7 @@
             android:id="@+id/rv_order_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="484"/>
+            android:layout_weight="332"/>
 
         <View
             android:layout_width="match_parent"

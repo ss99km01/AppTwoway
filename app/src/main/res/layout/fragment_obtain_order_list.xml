@@ -230,7 +230,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:checked="true"
-                            android:text="  미처리 조회" />
+                            android:text=" 전체" />
 
                         <RadioButton
                             style="@style/CheckBoxText"
@@ -238,7 +238,7 @@
                             android:id="@+id/radio1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="  완료 조회" />
+                            android:text=" 발주" />
 
                         <RadioButton
                             style="@style/CheckBoxText"
@@ -246,7 +246,7 @@
                             android:id="@+id/radio2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="  업체주문내역" />
+                            android:text=" 수주" />
 
                         <RadioButton
                             style="@style/CheckBoxText"
@@ -254,7 +254,32 @@
                             android:id="@+id/radio3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="  직접판매내역" />
+                            android:text=" 수주취소" />
+
+                    </RadioGroup>
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup2"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <RadioButton
+                            style="@style/CheckBoxText"
+                            android:button="@drawable/checkbox_20"
+                            android:id="@+id/radio4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text=" 업체주문내역" />
+
+                        <RadioButton
+                            style="@style/CheckBoxText"
+                            android:button="@drawable/checkbox_20"
+                            android:id="@+id/radio5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 직접판매내역" />
 
                     </RadioGroup>
                 </LinearLayout>

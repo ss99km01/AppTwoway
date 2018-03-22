@@ -81,6 +81,11 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
     public static final int SEARCH_EMPLOYEE_NAME = 3;
     public static final int SEARCH_TEL_NO = 4;
 
+    public static final int SEARCH_INDEX_0 = 0;
+    public static final int SEARCH_INDEX_1 = 1;
+    public static final int SEARCH_INDEX_2 = 2;
+    public static final int SEARCH_INDEX_3 = 3;
+
     public static final String DEFAULT_ORDER_TYPE_CODE  = "001";
     public static final String DEFAULT_RECEIVABLE_PRICE  = "0";
     public static final String DEFAULT_ORDER_PAY_TYPE_CODE  = "009";
@@ -173,7 +178,7 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
                 Log.e("ss99km01", "ss99km01 setUpViewPager onPageSelected");
                 if (position == FRAGMENT_INDEX_ORDERLIST) {
                     Log.e("ss99km01", "ss99km01 setUpViewPager onPageSelected   FRAGMENT_INDEX_ORDERLIST");
-                    requestGetOrderList();
+//                    requestGetOrderList();
                 }
             }
             @Override
@@ -210,7 +215,7 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
     public void requestCustomerList(int index, String text) {
         Map<String, String> values = new HashMap<>();
         values.put(getString(R.string.COMPANY_ID), ServiceCommon.COMPANY_ID);
-//                values.put(getString(R.string.BUY_YN), "Y");
+        values.put(getString(R.string.BUY_YN), "Y");
 //        values.put(getString(R.string.SELL_YN), "Y");
         switch(index) {
             case SEARCH_BUSI_NO:
@@ -287,8 +292,9 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
         sendRequest(getString(R.string.REQUEST_API_SENDORDER), getString(R.string.api_sendOrder), values);
     }
 
-    public void requestSendOrder(String selCompanyID, String request, String orderPrice, String Store_id, ArrayList<Product> prodList){
+    public void requestSendOrderUpdate(String orderID, String selCompanyID, String request, String orderPrice, String Store_id, ArrayList<Product> prodList){
         Map<String, String> values = new HashMap<>();
+        values.put("order_id", orderID);
         values.put("order_type_code", DEFAULT_ORDER_TYPE_CODE);
         values.put("buy_company_id", ServiceCommon.COMPANY_ID);
         values.put("sell_company_id", selCompanyID);
@@ -306,10 +312,26 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
         sendRequest(getString(R.string.REQUEST_API_SENDORDER_UPDATE), getString(R.string.api_sendOrder), values);
     }
 
-    public void requestGetOrderList() {
+    public void requestGetOrderList(int searchIndex, String orderTypeCode, String start, String end) {
         Log.e("ss99km01", "ss99km01 requestGetOrderList");
         Map<String, String> values = new HashMap<>();
         values.put("company_id", ServiceCommon.COMPANY_ID);
+        values.put("order_type_code", orderTypeCode);
+        values.put("order_ymd1", start);
+        values.put("order_ymd2", end);
+        switch(searchIndex) {
+            case SEARCH_INDEX_0:
+                break;
+            case SEARCH_INDEX_1:
+                values.put("order_status_code", "001");
+                break;
+            case SEARCH_INDEX_2:
+                values.put("order_status_code", "002");
+                break;
+            case SEARCH_INDEX_3:
+                values.put("order_status_code", "003");
+                break;
+        }
         showProgress();
         sendRequest(getString(R.string.REQUEST_API_ORDERLIST), getString(R.string.api_orderList), values);
     }
@@ -638,7 +660,8 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
         if ("SUCCESS".equals(result)) {
             CommonUtil.showAlertDialog(this, getString(R.string.order_success), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
-                    requestGetOrderList();
+//                    requestGetOrderList();
+                    ((OrderListFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDERLIST)).closeDetailOrder();
                 }
             });
         } else {
@@ -679,7 +702,8 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
         if ("SUCCESS".equals(result)) {
             CommonUtil.showAlertDialog(this, getString(R.string.order_cancel), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
-                    requestGetOrderList();
+//                    requestGetOrderList();
+                    ((OrderListFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDERLIST)).closeDetailOrder();
                 }
             });
         } else {

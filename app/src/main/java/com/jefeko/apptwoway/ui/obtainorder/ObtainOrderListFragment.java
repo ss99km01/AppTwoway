@@ -23,6 +23,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.jefeko.apptwoway.R;
+import com.jefeko.apptwoway.ServiceCommon;
 import com.jefeko.apptwoway.adapters.OrderListAdapter;
 import com.jefeko.apptwoway.adapters.ProductCheckAdapter;
 import com.jefeko.apptwoway.models.Order;
@@ -56,6 +57,7 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
     @BindView(R.id.btn_inquiry) Button btnSearch;
     @BindView(R.id.rv_check_product_list2) RecyclerView mProductCheckView;
     @BindView(R.id.radioGroup) RadioGroup mRadioGroup;
+    @BindView(R.id.radioGroup2) RadioGroup mRadioGroup2;
     @BindView(R.id.tv_date_start) TextView tvDateStart;
     @BindView(R.id.tv_date_end) TextView tvDateEnd;
     @BindView(R.id.tvCompanyType) TextView tvCompanyType;                   //처리상태
@@ -71,6 +73,7 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
     private Order order = null;
     private int mSearchOptionIndex = 0;
     private int mRadioIndex = 0;
+    private String mOrderType = "";
     private String strDateStart = "";
     private String strDateEnd = "";
     private DatePickerDialog dialogStart = null;
@@ -78,7 +81,6 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
     private DatePickerDialog.OnDateSetListener listenerStart = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-//            Toast.makeText(getApplicationContext(), year + "년" + monthOfYear + "월" + dayOfMonth +"일", Toast.LENGTH_SHORT).show();
             strDateStart = getDateString(year, monthOfYear+1, dayOfMonth);
             tvDateStart.setText(strDateStart);
         }
@@ -86,7 +88,6 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
     private DatePickerDialog.OnDateSetListener listenerEnd = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-//            Toast.makeText(getApplicationContext(), year + "년" + monthOfYear + "월" + dayOfMonth +"일", Toast.LENGTH_SHORT).show();
             strDateEnd = getDateString(year, monthOfYear+1, dayOfMonth);
             tvDateEnd.setText(strDateEnd);
         }
@@ -107,6 +108,17 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
         }
     };
 
+    RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener2 = new RadioGroup.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+            if(i == R.id.radio4){
+                mOrderType = "001";
+            } else if(i == R.id.radio5) {
+                mOrderType = "002";
+            }
+        }
+    };
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -115,7 +127,6 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
         ButterKnife.bind(this, rootView);
 
         initialize();
-        setDummyOrder();
 
         btnClose.setOnClickListener(this);
         btnSearch.setOnClickListener(this);
@@ -123,10 +134,6 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
         btnDateEnd.setOnClickListener(this);
         jumun_cancel.setOnClickListener(this);
         jumun_confirm.setOnClickListener(this);
-//        radio0.setOnClickListener(this);
-//        radio1.setOnClickListener(this);
-//        radio2.setOnClickListener(this);
-//        radio3.setOnClickListener(this);
 
         return rootView;
     }
@@ -158,6 +165,7 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
         mProductCheckView.setAdapter(mProductCheckAdapter);
 
         mRadioGroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
+        mRadioGroup2.setOnCheckedChangeListener(radioGroupButtonChangeListener2);
 
         tvDateStart.setText(CommonUtil.getCurrentYYYYMMDD());
         tvDateEnd.setText(CommonUtil.getCurrentYYYYMMDD());
@@ -166,6 +174,8 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
 
         dialogStart = new DatePickerDialog(getContext(), listenerStart, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
         dialogEnd = new DatePickerDialog(getContext(), listenerEnd,  c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
+        strDateStart = CommonUtil.getCurrentYYYYMMDD();
+        strDateEnd = CommonUtil.getCurrentYYYYMMDD();
     }
 
     private String getDateString(int year, int month, int day) {
@@ -186,13 +196,15 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
         mProductCheckAdapter.setProductList(order.getProductList());
         tvTotalPrice.setText(NumberFormatUtils.numberToCommaString(order.getOrder_price())+" 원");
 
-        if(order.getOrder_status_code().equals("001")){
+        if (order.getOrder_status_code().equals(ServiceCommon.ORDER_STATUS_OBTAIN_ORDER_COMPLETED)){
             tvProcessStatus.setText("수주완료");
-        }else{
+        } else if (order.getOrder_status_code().equals(ServiceCommon.ORDER_STATUS_OBTAIN_ORDER_CANCEL)){
             tvProcessStatus.setText("수주취소");
+        } else  if (order.getOrder_status_code().equals(ServiceCommon.ORDER_STATUS_ORDER_COMPLETED)){
+            tvProcessStatus.setText("발주완료");
         }
 
-        if(PreferenceUtils.getPreferenceValueOfString(getActivity(), getString(R.string.COMPANY_ID)).equals(order.getCompany_id())){
+        if (PreferenceUtils.getPreferenceValueOfString(getActivity(), getString(R.string.COMPANY_ID)).equals(order.getCompany_id())){
             tvCompanyType.setText("직접주문");
         }else{
             tvCompanyType.setText("업체주문건");
@@ -225,7 +237,7 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
                 closeDetailOrder();
                 break;
             case R.id.btn_inquiry:
-                ((ObtainOrderManageActivity)getActivity()).requestGetReceiveOrderList(mRadioIndex, strDateStart, strDateEnd);
+                ((ObtainOrderManageActivity)getActivity()).requestGetReceiveOrderList(mRadioIndex, mOrderType, strDateStart, strDateEnd);
                 break;
             case R.id.btn_date_start:
                 if (dialogStart != null)
@@ -248,13 +260,7 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
     public void setOrder(ArrayList<Order> order) {
         mOrderListAdapter.clearItem();
         for(int i = 0; i < order.size(); i++) {
-            if (mRadioIndex == 3){
-                if (PreferenceUtils.getPreferenceValueOfString(getActivity(), getString(R.string.COMPANY_ID)).equals(order.get(i).getCompany_id())){
-                    mOrderListAdapter.addItem(order.get(i));
-                }
-            } else {
-                mOrderListAdapter.addItem(order.get(i));
-            }
+            mOrderListAdapter.addItem(order.get(i));
         }
     }
 

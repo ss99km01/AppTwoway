@@ -99,6 +99,9 @@ public class WayTalkMmsListAdapter extends RecyclerView.Adapter<WayTalkMmsListAd
 
     @Override
     public int getItemCount() {
+        if (mmsList == null) {
+            return 0;
+        }
         return mmsList.size();
     }
 

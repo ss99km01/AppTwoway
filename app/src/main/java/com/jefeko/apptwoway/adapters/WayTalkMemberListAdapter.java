@@ -61,6 +61,9 @@ public class WayTalkMemberListAdapter extends RecyclerView.Adapter<WayTalkMember
 
     @Override
     public int getItemCount() {
+        if (memberList == null) {
+            return 0;
+        }
         return memberList.size();
     }
 

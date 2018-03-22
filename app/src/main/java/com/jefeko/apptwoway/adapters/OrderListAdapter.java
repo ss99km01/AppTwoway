@@ -74,6 +74,9 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Prod
 
     @Override
     public int getItemCount() {
+        if (mOrderList == null) {
+            return 0;
+        }
         return mOrderList.size();
     }
 

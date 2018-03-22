@@ -104,10 +104,7 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
         View rootView = inflater.inflate(R.layout.fragment_order, container, false);
         ButterKnife.bind(this, rootView);
 
-
         initialize();
-
-//        setDummyCompany();
 
         btnCustomerSearch.setOnClickListener(this);
         btnSelectCompany.setOnClickListener(this);
@@ -118,6 +115,9 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
         btnQRCode.setOnClickListener(this);
         btnProdSearch.setOnClickListener(this);
         mms_btn.setOnClickListener(this);
+
+        btnOrderCheck.setEnabled(false);
+        btnOrderConfirm.setEnabled(false);
 
         return rootView;
     }
@@ -173,6 +173,14 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
     public void updateTotalPrice(String price) {
         tvTotalPrice_1.setText(NumberFormatUtils.numberToCommaString(price)+" 원");
         tvTotalPrice_2.setText(NumberFormatUtils.numberToCommaString(price)+" 원");
+
+        if (Integer.valueOf(price) > 0) {
+            btnOrderCheck.setEnabled(true);
+            btnOrderConfirm.setEnabled(true);
+        } else {
+            btnOrderCheck.setEnabled(false);
+            btnOrderConfirm.setEnabled(false);
+        }
     }
 
     @Override
@@ -377,6 +385,9 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
     public void initOrder() {
         edtSearchText.setText("");
         mCompanyListAdapter.clearItem();
+        mProductListAdapter.clearItem();
+        mProductSelectAdapter.clearItem();
+        mProductCheckAdapter.clearItem();
         layoutCompanyInfo.setVisibility(View.GONE);
         layoutOrder3.setVisibility(View.GONE);
         layoutOrder5.setVisibility(View.GONE);

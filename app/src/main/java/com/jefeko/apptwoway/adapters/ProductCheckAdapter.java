@@ -37,6 +37,11 @@ public class ProductCheckAdapter extends RecyclerView.Adapter<ProductCheckAdapte
         notifyDataSetChanged();
     }
 
+    public void clearItem() {
+        this.productList.clear();
+        notifyDataSetChanged();
+    }
+
     public Product getItem(int position) {
         return this.productList.get(position);
     }
@@ -118,6 +123,9 @@ public class ProductCheckAdapter extends RecyclerView.Adapter<ProductCheckAdapte
 
     @Override
     public int getItemCount() {
+        if (productList == null) {
+            return 0;
+        }
         return productList.size();
     }
 

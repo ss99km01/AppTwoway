@@ -156,6 +156,8 @@ public class ObtainOrderFragment extends Fragment implements View.OnClickListene
         mProductCheckView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mProductCheckView.setAdapter(mProductCheckAdapter);
 
+        btnRegSellCheck.setEnabled(false);
+        btnOrderConfirm.setEnabled(false);
     }
 
     public void addSelectedItem(Product Product) {
@@ -165,6 +167,14 @@ public class ObtainOrderFragment extends Fragment implements View.OnClickListene
     public void updateTotalPrice(String price) {
         tvTotalPrice_1.setText(NumberFormatUtils.numberToCommaString(price)+" 원");
         tvTotalPrice_2.setText(NumberFormatUtils.numberToCommaString(price)+" 원");
+
+        if (Integer.valueOf(price) > 0) {
+            btnRegSellCheck.setEnabled(true);
+            btnOrderConfirm.setEnabled(true);
+        } else {
+            btnRegSellCheck.setEnabled(false);
+            btnOrderConfirm.setEnabled(false);
+        }
     }
 
     @Override
@@ -293,6 +303,9 @@ public class ObtainOrderFragment extends Fragment implements View.OnClickListene
     public void initOrder() {
         edtSearchText.setText("");
         mCompanyListAdapter.clearItem();
+        mProductListAdapter.clearItem();
+        mProductSelectAdapter.clearItem();
+        mProductCheckAdapter.clearItem();
         layoutCompanyInfo.setVisibility(View.GONE);
         layoutObtainOrder3.setVisibility(View.GONE);
         layoutObtainOrder5.setVisibility(View.GONE);

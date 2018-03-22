@@ -35,6 +35,12 @@ public class ServiceCommon {
 	public static final String COMPANY_TYPE_002 = "002";
 	public static final String COMPANY_TYPE_003 = "003";
 
+	public static final String ORDER_STATUS_ORDER_COMPLETED = "001";
+	public static final String ORDER_STATUS_OBTAIN_ORDER_COMPLETED = "002";
+	public static final String ORDER_STATUS_OBTAIN_ORDER_CANCEL = "003";
+
+
+
 	/**
 	 * app version Name에 따라 개발, 상용 서버 URL을 설정하는 함수
 	 * Version Name이 홀수면 개발, 짝수면 상용

@@ -166,6 +166,9 @@ public class WayTalkHistoryListAdapter extends RecyclerView.Adapter<WayTalkHisto
 
     @Override
     public int getItemCount() {
+        if (historyList == null) {
+            return 0;
+        }
         return historyList.size();
     }
 
