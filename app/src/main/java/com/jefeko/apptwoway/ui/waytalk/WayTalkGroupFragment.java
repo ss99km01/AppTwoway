@@ -85,6 +85,7 @@ public class WayTalkGroupFragment extends Fragment implements View.OnClickListen
         initEvent();
 
         volley = new VolleyHelper(getActivity());
+        doWayGumaecheoTalk(false);
 
         return wayTalkGroup;
     }
@@ -126,6 +127,7 @@ public class WayTalkGroupFragment extends Fragment implements View.OnClickListen
                 member_search_layout.setVisibility(View.GONE);
                 hideKeyBoard();
                 gubun = 0;
+                doWayGumaecheoTalk(false);
                 break;
             case R.id.panmaecheo:
                 gumaecheo.setTextColor(getResources().getColor(R.color.colorTextGray));
@@ -141,8 +143,8 @@ public class WayTalkGroupFragment extends Fragment implements View.OnClickListen
                 panmaecheo_search_layout.setVisibility(View.VISIBLE);
                 member_search_layout.setVisibility(View.GONE);
                 hideKeyBoard();
-
                 gubun = 1;
+                doWayPanmaecheoTalk(false);
                 break;
             case R.id.member:
 //                gumaecheo.setBackgroundResource(R.drawable.tab_1_22_normal);
@@ -159,22 +161,16 @@ public class WayTalkGroupFragment extends Fragment implements View.OnClickListen
 //                gubun = 2;
                 break;
             case R.id.search_gumaecheo_btn:
-
-                doWayGumaecheoTalk();
+                doWayGumaecheoTalk(true);
                 hideKeyBoard();
-                
                 break;
             case R.id.search_panmaecheo_btn:
-
-                doWayPanmaecheoTalk();
+                doWayPanmaecheoTalk(true);
                 hideKeyBoard();
-
                 break;
             case R.id.search_member_btn:
-
                 doWayMemberTalk();
                 hideKeyBoard();
-
                 break;
         }
     }
@@ -185,8 +181,8 @@ public class WayTalkGroupFragment extends Fragment implements View.OnClickListen
         CommonUtil.hideKeyboard(getActivity(),search_member_text);
     }
 
-    public void doWayGumaecheoTalk() {
-        if(TextUtils.isEmpty(search_gumaecheo_text.getText().toString())) {
+    public void doWayGumaecheoTalk(boolean isSearch) {
+        if(isSearch && TextUtils.isEmpty(search_gumaecheo_text.getText().toString())) {
             CommonUtil.showAlertDialog(getActivity(), getString(R.string.search_field_input_faild));
             return;
         }
@@ -199,13 +195,13 @@ public class WayTalkGroupFragment extends Fragment implements View.OnClickListen
         values.put(getString(R.string.COMPANY_ID), PreferenceUtils.getPreferenceValueOfString(getActivity(), getString(R.string.COMPANY_ID)));
         values.put(getString(R.string.REPRESENTATIVE_NAME), "");
         values.put(getString(R.string.TEL_NO), "");
-        values.put(getString(R.string.BUY_YN), "");
+        values.put(getString(R.string.BUY_YN), "Y");
         values.put(getString(R.string.SELL_YN), "");
         values.put(getString(R.string.CHAIN_YN), "");
         values.put(getString(R.string.COMPANY_NAME), "");
         values.put(getString(R.string.COMPANY_NAME), search_gumaecheo_text.getText().toString());
         values.put(getString(R.string.BUSINESS_NUMBER), "");
-        values.put(getString(R.string.USE_YN), "");
+        values.put(getString(R.string.USE_YN), "Y");
 
         volley.sendRequest(getString(R.string.REQUEST_API_CUSTOMERLIST), getString(R.string.api_customerList), values,new Response.Listener<String>(){
                     @Override
@@ -216,8 +212,8 @@ public class WayTalkGroupFragment extends Fragment implements View.OnClickListen
         );
     }
 
-    public void doWayPanmaecheoTalk() {
-        if(TextUtils.isEmpty(search_panmaecheo_text.getText().toString())) {
+    public void doWayPanmaecheoTalk(boolean isSearch) {
+        if(isSearch && TextUtils.isEmpty(search_panmaecheo_text.getText().toString())) {
             CommonUtil.showAlertDialog(getActivity(), getString(R.string.search_field_input_faild));
             return;
         }
