@@ -52,6 +52,7 @@ public class LoginActivity extends BaseActivity{
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         mContext = this;
+        ServiceCommon.PUSH_TOKEN = FirebaseInstanceId.getInstance().getToken();
 
         initEvent();
         initialize();

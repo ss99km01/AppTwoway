@@ -159,7 +159,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="24"/>
+                    android:layout_weight="22"/>
                 <!-- 체크박스
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -258,6 +258,20 @@
 
                     </RadioGroup>
 
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="24"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
                     <RadioGroup
                         android:id="@+id/radioGroup2"
                         android:orientation="horizontal"
@@ -271,12 +285,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:checked="true"
-                            android:text=" 업체주문내역" />
+                            android:text=" 전체" />
 
                         <RadioButton
                             style="@style/CheckBoxText"
                             android:button="@drawable/checkbox_20"
                             android:id="@+id/radio5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text=" 업체주문내역" />
+
+                        <RadioButton
+                            style="@style/CheckBoxText"
+                            android:button="@drawable/checkbox_20"
+                            android:id="@+id/radio6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=" 직접판매내역" />
@@ -287,7 +310,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="24"/>
+                    android:layout_weight="22"/>
                 <Button
                     android:id="@+id/btn_inquiry"
                     android:layout_width="wrap_content"
@@ -302,10 +325,6 @@
                     android:layout_weight="24"/>
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="24"/>
         </LinearLayout>
         <!-- 상품주문 내역 -->
         <LinearLayout

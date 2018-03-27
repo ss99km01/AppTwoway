@@ -61,11 +61,11 @@
     </style>
 
     <style name="CheckBoxText">
-        <item name="android:textSize">@dimen/dimen_13</item>
+        <item name="android:textSize">@dimen/dimen_16</item>
         <item name="android:textColor">#000000</item>
         <item name="android:gravity">center</item>
-        <item name="android:layout_marginLeft">@dimen/dimen_5</item>
-        <item name="android:layout_marginRight">@dimen/dimen_5</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_8</item>
+        <item name="android:layout_marginRight">@dimen/dimen_8</item>
     </style>
 
 </resources>
