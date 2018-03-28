@@ -59,33 +59,37 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="16"/>
+                        android:layout_weight="12"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="26">
+                        android:layout_weight="34">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             style="@style/Text_Black_14"
-                            android:text="처리상태 : "/>
+                            android:text="처리상태 : "
+                            android:gravity="center"/>
                         <TextView
                             android:id="@+id/tvProcessStatus"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             style="@style/Text_Black_14"
-                            android:text="미처리"/>
+                            android:text="미처리"
+                            android:gravity="center"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             style="@style/Text_Black_14"
-                            android:text=" / 구분 : "/>
+                            android:text=" / 구분 : "
+                            android:gravity="center"/>
                         <TextView
                             android:id="@+id/tvCompanyType"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             style="@style/Text_Black_14"
-                            android:text="업체주문"/>
+                            android:text="업체주문"
+                            android:gravity="center"/>
                         <TextView
                             android:id="@+id/tvSelectedCompany"
                             android:layout_width="match_parent"
@@ -93,13 +97,13 @@
                             android:textColor="#0068b7"
                             android:textStyle="bold"
                             android:textSize="@dimen/dimen_14"
-                            android:gravity="end"
+                            android:gravity="end|center_vertical"
                             android:text="선택된 사업자 : "/>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="16"/>
+                        android:layout_weight="12"/>
                 </LinearLayout>
 
                 <!-- 리스트 -->
@@ -120,25 +124,25 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="132"
+                            android:layout_weight="140"
                             style="@style/Text_Center_Black_14"
                             android:text="상품명"/>
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="116"
+                            android:layout_weight="110"
                             style="@style/Text_Center_Black_14"
                             android:text="단위"/>
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="116"
+                            android:layout_weight="110"
                             style="@style/Text_Center_Black_14"
                             android:text="단가"/>
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="116"
+                            android:layout_weight="270"
                             style="@style/Text_Center_Black_14"
                             android:text="수량"/>
                     </LinearLayout>
@@ -262,7 +266,7 @@
                                 android:id="@+id/jumun_cancel"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="240"
+                                android:layout_weight="120"
                                 android:text="@string/btn_order_unprocessed"
                                 style="@style/Text_Center_Black_Bold_18"
                                 android:background="@drawable/btn_white"/>
@@ -270,8 +274,24 @@
                                 android:id="@+id/jumun_confirm"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="240"
+                                android:layout_weight="120"
                                 android:text="@string/btn_order_completed"
+                                style="@style/Text_Center_Black_Bold_18"
+                                android:background="@drawable/btn_white"/>
+                            <Button
+                                android:id="@+id/jumun_update"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="120"
+                                android:text="@string/btn_order_update"
+                                style="@style/Text_Center_Black_Bold_18"
+                                android:background="@drawable/btn_white"/>
+                            <Button
+                                android:id="@+id/jumun_change"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="120"
+                                android:text="@string/btn_order_change"
                                 style="@style/Text_Center_Black_Bold_18"
                                 android:background="@drawable/btn_white"/>
                         </LinearLayout>

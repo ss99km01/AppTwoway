@@ -71,6 +71,7 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
     ArrayList<Product> mSearchProduct = new ArrayList<Product>();
     ArrayList<Store> mStore = new ArrayList<Store>();
     ArrayList<Order> mOrder = new ArrayList<Order>();
+    private Order mUpdateOrder = null;
 
     public static final int FRAGMENT_INDEX_ORDER = 0;
     public static final int FRAGMENT_INDEX_ORDERLIST = 1;
@@ -175,10 +176,8 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
             }
             @Override
             public void onPageSelected(int position) {
-                Log.e("ss99km01", "ss99km01 setUpViewPager onPageSelected");
                 if (position == FRAGMENT_INDEX_ORDERLIST) {
-                    Log.e("ss99km01", "ss99km01 setUpViewPager onPageSelected   FRAGMENT_INDEX_ORDERLIST");
-//                    requestGetOrderList();
+                    ((OrderListFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDERLIST)).doSearch();
                 }
             }
             @Override
@@ -232,6 +231,16 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
                 break;
         }
         sendRequest(getString(R.string.REQUEST_API_CUSTOMERLIST), getString(R.string.api_customerList), values);
+    }
+
+    public void requestCustomer(Order order) {
+        Map<String, String> values = new HashMap<>();
+        values.put(getString(R.string.COMPANY_ID), ServiceCommon.COMPANY_ID);
+        values.put(getString(R.string.BUY_YN), "Y");
+//        values.put(getString(R.string.SELL_YN), "Y");
+        values.put(getString(R.string.COMPANY_NAME), order.getCompany_name());
+        mUpdateOrder = order;
+        sendRequest(getString(R.string.REQUEST_API_CUSTOMER), getString(R.string.api_customerList), values);
     }
 
     public void requestGetHeadQuarters() {
@@ -316,7 +325,9 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
         Log.e("ss99km01", "ss99km01 requestGetOrderList");
         Map<String, String> values = new HashMap<>();
         values.put("company_id", ServiceCommon.COMPANY_ID);
-        values.put("order_type_code", orderTypeCode);
+        if (!"000".equals(orderTypeCode)) {
+            values.put("order_type_code", orderTypeCode);
+        }
         values.put("order_ymd1", start);
         values.put("order_ymd2", end);
         switch(searchIndex) {
@@ -381,6 +392,8 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
 
             if (getString(R.string.REQUEST_API_CUSTOMERLIST).equals(code)) {
                 processCustomerList(obj);
+            } else if (getString(R.string.REQUEST_API_CUSTOMER).equals(code)) {
+                processCustomer(obj);
             } else if (getString(R.string.REQUEST_API_HEADQUARTERS).equals(code)) {
                 processGetHeadQuarters(obj);
             } else if (getString(R.string.REQUEST_API_ORDERTOUCHKEYCATEGORYLIST).equals(code)) {
@@ -533,6 +546,45 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
         ((OrderFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDER)).setCompany(mCompany);
     }
 
+    private void processCustomer(JSONObject obj) throws JSONException {
+        mCompany.clear();
+        Company company = new Company();
+
+        JSONArray customerList = obj.getJSONArray("customerList");
+        for (int i = 0; i < customerList.length(); i++) {
+            JSONObject customer = customerList.getJSONObject(i);
+            company.setBuy_yn(getJSONData(customer, "buy_yn"));
+            company.setSell_yn(getJSONData(customer, "sell_yn"));
+            company.setChain_yn(getJSONData(customer, "chain_yn"));
+            company.setUse_yn(getJSONData(customer, "use_yn"));
+            company.setCompany_id(getJSONData(customer, "company_id"));
+            company.setCompany_name(getJSONData(customer, "company_name"));
+            company.setBusi_no(getJSONData(customer, "busi_no"));
+            company.setCompany_type_code(getJSONData(customer, "company_type_code"));
+            company.setCompany_type_name(getJSONData(customer, "company_type_name"));
+            company.setBusi_type(getJSONData(customer, "busi_type"));
+            company.setBusi_item(getJSONData(customer, "busi_item"));
+            company.setTel_no(getJSONData(customer, "tel_no"));
+            company.setFax_no(getJSONData(customer, "fax_no"));
+            company.setZip(getJSONData(customer, "zip"));
+            company.setAddr1(getJSONData(customer, "addr1"));
+            company.setAddr2(getJSONData(customer, "addr2"));
+            company.setEmployee_name(getJSONData(customer, "employee_name"));
+            company.setCell_no(getJSONData(customer, "cell_no"));
+            company.setEmail(getJSONData(customer, "email"));
+            company.setBank_code(getJSONData(customer, "bank_code"));
+            company.setBank_name(getJSONData(customer, "bank_name"));
+            company.setAccounter(getJSONData(customer, "accounter"));
+            company.setAccount_no(getJSONData(customer, "account_no"));
+            mCompany.add(company);
+        }
+        ((OrderFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDER)).setCompany(mCompany);
+        ((OrderFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDER)).orderUpdate(company, mUpdateOrder);
+        if (mViewPager.getCurrentItem() != FRAGMENT_INDEX_ORDER) {
+            mViewPager.setCurrentItem(FRAGMENT_INDEX_ORDER);
+        }
+    }
+
     private void processGetHeadQuarters(JSONObject obj) throws JSONException {
         boolean isHeadQuarters = false;
         JSONArray customerList = obj.getJSONArray("customerList");
@@ -658,9 +710,14 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
         String result = obj.getString("result");
 
         if ("SUCCESS".equals(result)) {
-            CommonUtil.showAlertDialog(this, getString(R.string.order_success), new DialogInterface.OnClickListener() {
+            CommonUtil.showAlertDialog(this, getString(R.string.order_update), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
 //                    requestGetOrderList();
+                    if (mViewPager.getCurrentItem() != FRAGMENT_INDEX_ORDERLIST) {
+                        mViewPager.setCurrentItem(FRAGMENT_INDEX_ORDERLIST);
+                        ((OrderFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDER)).initOrder();
+                    }
+                    ((OrderListFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDERLIST)).doSearch();
                     ((OrderListFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDERLIST)).closeDetailOrder();
                 }
             });
@@ -703,6 +760,7 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
             CommonUtil.showAlertDialog(this, getString(R.string.order_cancel), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
 //                    requestGetOrderList();
+                    ((OrderListFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDERLIST)).doSearch();
                     ((OrderListFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDERLIST)).closeDetailOrder();
                 }
             });

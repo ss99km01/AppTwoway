@@ -32,6 +32,8 @@
     <string name="btn_inquiry">조회하기</string>
     <string name="btn_order_unprocessed">주문미처리</string>
     <string name="btn_order_completed">주문완료처리</string>
+    <string name="btn_order_update">주문수정</string>
+    <string name="btn_order_change">상품추가</string>
 
     <string name="logout"><u>로그아웃</u></string>
     <string name="alert_title"><u>알림</u></string>
@@ -57,6 +59,7 @@
     <string name="search_faild">검색 중 오류가 발생하였습니다.</string>
     <string name="search_not_found">검색 결과가 존재하지 않습니다.</string>
     <string name="order_success">정상적으로 주문이 완료 되었습니다.</string>
+    <string name="order_update">정상적으로 주문이 수정 되었습니다.</string>
     <string name="order_fail">주문 중 오류가 발생하였습니다.</string>
     <string name="order_cancel">정상적으로 주문이 취소 되었습니다.</string>
     <string name="order_cancel_fail">주문이 취소중 오류가 발상하였습니다.</string>
@@ -186,6 +189,8 @@
     <string name="REQUEST_API_EMPLOYEELIST"><![CDATA[api_employeeList]]></string>
     <!-- 거래처목록조회 -->
     <string name="REQUEST_API_CUSTOMERLIST"><![CDATA[api_customerList]]></string>
+    <!-- 거래처조회 -->
+    <string name="REQUEST_API_CUSTOMER"><![CDATA[api_customer]]></string>
     <!-- 본사조회 -->
     <string name="REQUEST_API_HEADQUARTERS"><![CDATA[api_headQuarters]]></string>
     <!-- 회원목록조회 -->

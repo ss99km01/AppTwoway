@@ -59,12 +59,13 @@ public class OrderListFragment extends Fragment implements View.OnClickListener 
     @BindView(R.id.request) TextView request;                                   //요구사항
     @BindView(R.id.jumun_cancel) TextView jumun_cancel;                       //주문취소
     @BindView(R.id.jumun_confirm) TextView jumun_confirm;                     //주문확인
+    @BindView(R.id.jumun_change) Button jumun_change;                   //상품추가
     @BindView(R.id.print_btn) Button print_btn;
 
     private ProductCheckAdapter mProductCheckAdapter;
     private Order order = null;
     private int mRadioIndex = 0;
-    private String mOrderType = "";
+    private String mOrderType = "000";
     private String strDateStart = "";
     private String strDateEnd = "";
     private DatePickerDialog dialogStart = null;
@@ -103,8 +104,10 @@ public class OrderListFragment extends Fragment implements View.OnClickListener 
         @Override
         public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
             if(i == R.id.radio4){
-                mOrderType = "001";
+                mOrderType = "000";
             } else if(i == R.id.radio5) {
+                mOrderType = "001";
+            } else if(i == R.id.radio6) {
                 mOrderType = "002";
             }
         }
@@ -127,6 +130,7 @@ public class OrderListFragment extends Fragment implements View.OnClickListener 
         btnDateEnd.setOnClickListener(this);
         jumun_cancel.setOnClickListener(this);
         jumun_confirm.setOnClickListener(this);
+        jumun_change.setOnClickListener(this);
 
         return rootView;
     }
@@ -205,6 +209,10 @@ public class OrderListFragment extends Fragment implements View.OnClickListener 
         tvTotalPrice.setText(NumberFormatUtils.numberToCommaString(price)+" 원");
     }
 
+    public void doSearch() {
+        ((OrderManageActivity)getActivity()).requestGetOrderList(mRadioIndex, mOrderType, strDateStart, strDateEnd);
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -213,7 +221,7 @@ public class OrderListFragment extends Fragment implements View.OnClickListener 
                 closeDetailOrder();
                 break;
             case R.id.btn_inquiry:
-                ((OrderManageActivity)getActivity()).requestGetOrderList(mRadioIndex, mOrderType, strDateStart, strDateEnd);
+                doSearch();
                 break;
             case R.id.btn_date_start:
                 if (dialogStart != null)
@@ -224,10 +232,13 @@ public class OrderListFragment extends Fragment implements View.OnClickListener 
                     dialogEnd.show();
                 break;
             case R.id.jumun_cancel:
-                ((OrderManageActivity)getActivity()).requestSetOrder(this.order.getOrder_id());
+                ((OrderManageActivity)getActivity()).requestSetOrder(order.getOrder_id());
                 break;
             case R.id.jumun_confirm:
-                ((OrderManageActivity)getActivity()).requestSendOrderUpdate(order.getOrder_id(), order.getCompany_id(), this.order.getRequest(), String.valueOf(mProductCheckAdapter.getTotalCost()),  order.getDelivery_place_id(), mProductCheckAdapter.getProductList());
+                ((OrderManageActivity)getActivity()).requestSendOrderUpdate(order.getOrder_id(), order.getCompany_id(), order.getRequest(), String.valueOf(mProductCheckAdapter.getTotalCost()),  order.getDelivery_place_id(), mProductCheckAdapter.getProductList());
+                break;
+            case R.id.jumun_change:
+                ((OrderManageActivity)getActivity()).requestCustomer(order);
                 break;
             case R.id.print_btn:
                 if(((OrderManageActivity)getActivity()).printer_yn.equals("Y")) {

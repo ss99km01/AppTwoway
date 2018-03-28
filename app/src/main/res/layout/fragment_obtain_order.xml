@@ -143,7 +143,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="@string/company_select"
-                        android:background="@drawable/btn_gray" />
+                        android:background="@drawable/btn_gray"
+                        android:visibility="invisible"/>
                 </LinearLayout>
                 <View
                     android:layout_width="match_parent"

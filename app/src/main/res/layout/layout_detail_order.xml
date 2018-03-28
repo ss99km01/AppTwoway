@@ -264,7 +264,7 @@
                                 android:id="@+id/jumun_cancel"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="240"
+                                android:layout_weight="160"
                                 android:text="@string/btn_order_cancel"
                                 style="@style/Text_Center_Black_Bold_18"
                                 android:background="@drawable/btn_white"/>
@@ -272,8 +272,16 @@
                                 android:id="@+id/jumun_confirm"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="240"
-                                android:text="@string/btn_ok"
+                                android:layout_weight="160"
+                                android:text="@string/btn_order_update"
+                                style="@style/Text_Center_Black_Bold_18"
+                                android:background="@drawable/btn_white"/>
+                            <Button
+                                android:id="@+id/jumun_change"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="160"
+                                android:text="@string/btn_order_change"
                                 style="@style/Text_Center_Black_Bold_18"
                                 android:background="@drawable/btn_white"/>
                         </LinearLayout>

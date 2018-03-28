@@ -48,6 +48,22 @@ public class ProductSelectAdapter extends RecyclerView.Adapter<ProductSelectAdap
         }
     }
 
+    public boolean updateItem(Product product) {
+        if (checkItem(product)) {
+            this.productList.add(product);
+            if (mFragment instanceof OrderFragment) {
+                ((OrderFragment) mFragment).updateTotalPrice(String.valueOf(getTotalCost()));
+            }
+            if (mFragment instanceof ObtainOrderFragment) {
+                ((ObtainOrderFragment) mFragment).updateTotalPrice(String.valueOf(getTotalCost()));
+            }
+            notifyDataSetChanged();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void clearItem() {
         this.productList.clear();
         notifyDataSetChanged();

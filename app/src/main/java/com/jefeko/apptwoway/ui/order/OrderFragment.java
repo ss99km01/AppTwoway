@@ -25,6 +25,7 @@ import com.jefeko.apptwoway.adapters.ProductCheckAdapter;
 import com.jefeko.apptwoway.adapters.ProductListAdapter;
 import com.jefeko.apptwoway.adapters.ProductSelectAdapter;
 import com.jefeko.apptwoway.models.Company;
+import com.jefeko.apptwoway.models.Order;
 import com.jefeko.apptwoway.models.Product;
 import com.jefeko.apptwoway.ui.waytalk.WayTalkMmsActivity;
 import com.jefeko.apptwoway.utils.CommonUtil;
@@ -96,6 +97,8 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
     private int mStoreIndex = 0;
 
     public static final int SEARCH_BUSI_NO = 1;
+    private boolean mIsUpdate = false;
+    private Order mUpdateOrder = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -170,6 +173,12 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    public void updateSelectedItem(Product Product) {
+        if (mProductSelectAdapter.updateItem(Product)){
+            mProductSelectView.scrollToPosition(mProductSelectAdapter.getItemCount() - 1);
+        }
+    }
+
     public void updateTotalPrice(String price) {
         tvTotalPrice_1.setText(NumberFormatUtils.numberToCommaString(price)+" 원");
         tvTotalPrice_2.setText(NumberFormatUtils.numberToCommaString(price)+" 원");
@@ -198,10 +207,6 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
                     layoutOrder3.setVisibility(View.VISIBLE);
                     ((OrderManageActivity)getActivity()).requestGetOrderTouchKeyCategoryList(mSelectedCompany.getCompany_id(), mSelectedCompany.getChain_yn());
                     ((OrderManageActivity)getActivity()).requestGetStoreList();
-//                    setProdCategory();
-//                    ((OrderManageActivity)getActivity()).requestGetBuyProdList(0, mSelectedCompany.getCompany_id(), mSelectedCompany.getChain_yn());
-//                    setDummyProd();
-//                    setDummyProdSelect();
                 }
                 break;
             case R.id.btn_search_again:
@@ -228,12 +233,31 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
                 CommonUtil.hideKeyboard(mContext, edtProdSearch);
                 break;
             case R.id.btn_order_confirm:
-                ((OrderManageActivity)getActivity()).requestSendOrder(mSelectedCompany.getCompany_id(), edtRequestMessage.getText().toString(), String.valueOf(mProductSelectAdapter.getTotalCost()),  mStoreIndex, mProductSelectAdapter.getProductList());
+                if (mIsUpdate) {
+                    ((OrderManageActivity)getActivity()).requestSendOrderUpdate(mUpdateOrder.getOrder_id(), mSelectedCompany.getCompany_id(), edtRequestMessage.getText().toString(), String.valueOf(mProductSelectAdapter.getTotalCost()),  mUpdateOrder.getStore_id(), mProductSelectAdapter.getProductList());
+                } else {
+                    ((OrderManageActivity)getActivity()).requestSendOrder(mSelectedCompany.getCompany_id(), edtRequestMessage.getText().toString(), String.valueOf(mProductSelectAdapter.getTotalCost()),  mStoreIndex, mProductSelectAdapter.getProductList());
+                }
                 break;
 
             case R.id.mms_btn:
                 openActivity(WayTalkMmsActivity.class, mSelectedCompany.getCompany_id());
                 break;
+        }
+    }
+
+    public void orderUpdate(Company company, Order order) {
+        mIsUpdate = true;
+        mUpdateOrder = order;
+        initOrder();
+        setCompanyInfo(company);
+        if (layoutOrder3.getVisibility() == View.GONE) {
+            layoutOrder3.setVisibility(View.VISIBLE);
+            ((OrderManageActivity)getActivity()).requestGetOrderTouchKeyCategoryList(mSelectedCompany.getCompany_id(), mSelectedCompany.getChain_yn());
+            ((OrderManageActivity)getActivity()).requestGetStoreList();
+            for (int i = 0; i < order.getProductList().size(); i++) {
+                updateSelectedItem(order.getProductList().get(i));
+            }
         }
     }
 

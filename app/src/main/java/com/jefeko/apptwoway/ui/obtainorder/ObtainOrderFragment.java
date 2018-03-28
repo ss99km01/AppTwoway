@@ -25,6 +25,7 @@ import com.jefeko.apptwoway.adapters.ProductCheckAdapter;
 import com.jefeko.apptwoway.adapters.ProductListAdapter;
 import com.jefeko.apptwoway.adapters.ProductSelectAdapter;
 import com.jefeko.apptwoway.models.Company;
+import com.jefeko.apptwoway.models.Order;
 import com.jefeko.apptwoway.models.Product;
 import com.jefeko.apptwoway.ui.order.OrderManageActivity;
 import com.jefeko.apptwoway.ui.waytalk.WayTalkMmsActivity;
@@ -92,6 +93,8 @@ public class ObtainOrderFragment extends Fragment implements View.OnClickListene
     private int mProdCategoryIndex = 0;
     private int mStoreIndex = 0;
     public static final int SEARCH_BUSI_NO = 1;
+    private boolean mIsUpdate = false;
+    private Order mUpdateOrder = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -164,6 +167,12 @@ public class ObtainOrderFragment extends Fragment implements View.OnClickListene
         mProductSelectAdapter.addItem(Product);
     }
 
+    public void updateSelectedItem(Product Product) {
+        if (mProductSelectAdapter.updateItem(Product)){
+            mProductSelectView.scrollToPosition(mProductSelectAdapter.getItemCount() - 1);
+        }
+    }
+
     public void updateTotalPrice(String price) {
         tvTotalPrice_1.setText(NumberFormatUtils.numberToCommaString(price)+" 원");
         tvTotalPrice_2.setText(NumberFormatUtils.numberToCommaString(price)+" 원");
@@ -220,12 +229,32 @@ public class ObtainOrderFragment extends Fragment implements View.OnClickListene
                 }
                 break;
             case R.id.btn_order_confirm:
-                ((ObtainOrderManageActivity)getActivity()).requestSendOrder(mSelectedCompany.getCompany_id(), edtRequestMessage.getText().toString(), String.valueOf(mProductSelectAdapter.getTotalCost()),  mStoreIndex, mProductSelectAdapter.getProductList());
+                if (mIsUpdate) {
+                    ((ObtainOrderManageActivity)getActivity()).requestSendOrderUpdate(mUpdateOrder.getOrder_id(), mSelectedCompany.getCompany_id(), edtRequestMessage.getText().toString(), String.valueOf(mProductSelectAdapter.getTotalCost()),  mUpdateOrder.getStore_id(), mProductSelectAdapter.getProductList());
+                } else {
+                    ((ObtainOrderManageActivity)getActivity()).requestSendOrder(mSelectedCompany.getCompany_id(), edtRequestMessage.getText().toString(), String.valueOf(mProductSelectAdapter.getTotalCost()),  mStoreIndex, mProductSelectAdapter.getProductList());
+                }
+
                 break;
 
             case R.id.mms_btn:
                 openActivity(WayTalkMmsActivity.class, mSelectedCompany.getCompany_id());
                 break;
+        }
+    }
+
+    public void orderUpdate(Company company, Order order) {
+        mIsUpdate = true;
+        mUpdateOrder = order;
+        initOrder();
+        setCompanyInfo(company);
+        if (layoutObtainOrder3.getVisibility() == View.GONE) {
+            layoutObtainOrder3.setVisibility(View.VISIBLE);
+            ((ObtainOrderManageActivity)getActivity()).requestGetReceiveOrderTouchKeyCategoryList(mSelectedCompany.getCompany_id(), mSelectedCompany.getChain_yn());
+            ((ObtainOrderManageActivity)getActivity()).requestGetStoreList();
+            for (int i = 0; i < order.getProductList().size(); i++) {
+                updateSelectedItem(order.getProductList().get(i));
+            }
         }
     }
 

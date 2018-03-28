@@ -66,14 +66,16 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
     @BindView(R.id.tv_total_price) TextView tvTotalPrice;                   //합계금액
     @BindView(R.id.delivery_place_name) TextView delivery_place_name;       //딜리버리명
     @BindView(R.id.request) TextView request;                               //요구사항
-    @BindView(R.id.jumun_cancel) TextView jumun_cancel;                     //주문취소
-    @BindView(R.id.jumun_confirm) TextView jumun_confirm;                   //주문확인
+    @BindView(R.id.jumun_cancel) Button jumun_cancel;                     //주문취소
+    @BindView(R.id.jumun_confirm) Button jumun_confirm;                   //주문확인
+    @BindView(R.id.jumun_update) Button jumun_update;                   //주문수정
+    @BindView(R.id.jumun_change) Button jumun_change;                   //상품추가
 
     private ProductCheckAdapter mProductCheckAdapter;
     private Order order = null;
     private int mSearchOptionIndex = 0;
     private int mRadioIndex = 0;
-    private String mOrderType = "";
+    private String mOrderType = "000";
     private String strDateStart = "";
     private String strDateEnd = "";
     private DatePickerDialog dialogStart = null;
@@ -112,8 +114,10 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
         @Override
         public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
             if(i == R.id.radio4){
-                mOrderType = "001";
+                mOrderType = "000";
             } else if(i == R.id.radio5) {
+                mOrderType = "001";
+            } else if(i == R.id.radio6) {
                 mOrderType = "002";
             }
         }
@@ -134,6 +138,8 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
         btnDateEnd.setOnClickListener(this);
         jumun_cancel.setOnClickListener(this);
         jumun_confirm.setOnClickListener(this);
+        jumun_update.setOnClickListener(this);
+        jumun_change.setOnClickListener(this);
 
         return rootView;
     }
@@ -230,6 +236,10 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
         }
     }
 
+    public void doSearch() {
+        ((ObtainOrderManageActivity)getActivity()).requestGetReceiveOrderList(mRadioIndex, mOrderType, strDateStart, strDateEnd);
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -237,7 +247,7 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
                 closeDetailOrder();
                 break;
             case R.id.btn_inquiry:
-                ((ObtainOrderManageActivity)getActivity()).requestGetReceiveOrderList(mRadioIndex, mOrderType, strDateStart, strDateEnd);
+                doSearch();
                 break;
             case R.id.btn_date_start:
                 if (dialogStart != null)
@@ -248,10 +258,16 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
                     dialogEnd.show();
                 break;
             case R.id.jumun_cancel:
-                ((ObtainOrderManageActivity)getActivity()).requestSetOrder(this.order.getOrder_id(), "003");
+                ((ObtainOrderManageActivity)getActivity()).requestSetOrder(order.getOrder_id(), "003");
                 break;
             case R.id.jumun_confirm:
-                ((ObtainOrderManageActivity)getActivity()).requestSetOrder(this.order.getOrder_id(), "002");;
+                ((ObtainOrderManageActivity)getActivity()).requestSetOrder(order.getOrder_id(), "002");;
+                break;
+            case R.id.jumun_change:
+                ((ObtainOrderManageActivity)getActivity()).requestCustomer(order);
+                break;
+            case R.id.jumun_update:
+                ((ObtainOrderManageActivity)getActivity()).requestSendOrderUpdate(order.getOrder_id(), order.getCompany_id(), order.getRequest(), String.valueOf(mProductCheckAdapter.getTotalCost()),  order.getDelivery_place_id(), mProductCheckAdapter.getProductList());
                 break;
 
         }
