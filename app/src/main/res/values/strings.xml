@@ -180,6 +180,9 @@
     <!-- 기업정보 -->
     <string name="api_selectCompanyInfo"><![CDATA[http://api.webtwoway.com/selectCompanyInfo]]></string>
     <!--<string name="api_selectCompanyInfo"><![CDATA[http://192.168.0.6:8080/selectCompanyInfo]]></string>-->
+    <!-- 수주목록수조회 -->
+    <string name="api_getReceiveOrderListCount"><![CDATA[http://api.webtwoway.com/getReceiveOrderListCount]]></string>
+
 
 
     <!-- API 리턴 -->
@@ -241,4 +244,6 @@
     <string name="REQUEST_API_READMSG"><![CDATA[api_readMsg]]></string>
     <!-- 기업정보 -->
     <string name="REQUEST_API_SELECTCOMPANYINFO"><![CDATA[api_selectCompanyInfo]]></string>
+    <!-- 수주목록수조회 -->
+    <string name="REQUEST_API_GETRECEIVEORDERLISTCOUNT"><![CDATA[api_getReceiveOrderListCount]]></string>
 </resources>

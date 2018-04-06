@@ -36,6 +36,20 @@
                     android:text="판매(수주)관리"
                     android:gravity="center"
                     />
+
+                <TextView
+                    android:id="@+id/arlam_1"
+                    android:layout_width="@dimen/dimen_28"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/dimen_30"
+                    android:layout_marginLeft="@dimen/dimen_60"
+                    android:background="@drawable/arlam_red"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/dimen_20"
+                    android:textStyle="bold" />
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
                 android:id="@+id/card_view_order"
@@ -52,6 +66,7 @@
                     android:text="@string/order_manage"
                     android:gravity="center"
                     />
+
             </android.support.v7.widget.CardView>
         </LinearLayout>
 
@@ -75,6 +90,20 @@
                     android:text="웨이톡"
                     android:gravity="center"
                     />
+                <TextView
+                    android:id="@+id/arlam_2"
+                    android:layout_width="@dimen/dimen_28"
+                    android:layout_height="@dimen/dimen_28"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/dimen_30"
+                    android:layout_marginLeft="@dimen/dimen_86"
+                    android:background="@drawable/arlam_red"
+                    android:text="3"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dimen_20"
+                    android:gravity="center"
+                    android:visibility="gone"/>
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
                 android:id="@+id/card_view_basic"
