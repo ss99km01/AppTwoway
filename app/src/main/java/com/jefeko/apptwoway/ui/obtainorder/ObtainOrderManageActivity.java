@@ -240,7 +240,7 @@ public class ObtainOrderManageActivity extends BaseActivity {
         sendRequest(getString(R.string.REQUEST_API_SETORDER), getString(R.string.api_setOrder), values);
     }
 
-    public void requestGetReceiveOrderList(int searchIndex, String orderTypeCode, String start, String end) {
+    public void requestGetReceiveOrderList(int searchIndex, String orderTypeCode, String start, String end, String companyName) {
         Map<String, String> values = new HashMap<>();
         values.put("company_id", ServiceCommon.COMPANY_ID);
         if (!"000".equals(orderTypeCode)) {
@@ -248,6 +248,7 @@ public class ObtainOrderManageActivity extends BaseActivity {
         }
         values.put("order_ymd1", start);
         values.put("order_ymd2", end);
+        values.put("company_name", companyName);
         switch(searchIndex) {
             case SEARCH_INDEX_0:
                 break;
@@ -262,6 +263,7 @@ public class ObtainOrderManageActivity extends BaseActivity {
                 break;
         }
         showProgress();
+        Log.e("ss99km01", "ss99km01 requestGetReceiveOrderList showProgress");
         sendRequest(getString(R.string.REQUEST_API_RECEIVEORDERLIST), getString(R.string.api_receiveOrderList), values);
     }
 
@@ -314,6 +316,7 @@ public class ObtainOrderManageActivity extends BaseActivity {
                 processGetStoreList(obj);
             } else if (getString(R.string.REQUEST_API_RECEIVEORDERLIST).equals(code)) {
                 processGetReceiveOrderList(obj);
+                Log.e("ss99km01", "ss99km01 onSuccess dissmissProgress");
                 dissmissProgress();
             } else if (getString(R.string.REQUEST_API_SENDORDER).equals(code)) {
                 processSendOrder(obj);
@@ -561,12 +564,13 @@ public class ObtainOrderManageActivity extends BaseActivity {
         if ("SUCCESS".equals(result)) {
             CommonUtil.showAlertDialog(this, getString(R.string.order_update), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
-                    ((ObtainOrderListFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDERLIST)).doSearch();
-                    ((ObtainOrderListFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDERLIST)).closeDetailOrder();
-                    if (mViewPager.getCurrentItem() != FRAGMENT_INDEX_ORDERLIST) {
+                    if (mViewPager.getCurrentItem() == FRAGMENT_INDEX_ORDERLIST) {
+                        ((ObtainOrderListFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDERLIST)).doSearch();
+                    } else {
                         mViewPager.setCurrentItem(FRAGMENT_INDEX_ORDERLIST);
                         ((ObtainOrderFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDER)).initOrder();
                     }
+                    ((ObtainOrderListFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDERLIST)).closeDetailOrder();
                 }
             });
         } else {

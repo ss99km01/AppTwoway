@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
@@ -51,6 +52,7 @@ public class OrderListFragment extends Fragment implements View.OnClickListener 
     @BindView(R.id.radioGroup2) RadioGroup mRadioGroup2;
     @BindView(R.id.tv_date_start) TextView tvDateStart;
     @BindView(R.id.tv_date_end) TextView tvDateEnd;
+    @BindView(R.id.edt_company_name) EditText edtCompanyNmae;
 
     @BindView(R.id.rv_check_product_list2) RecyclerView mProductCheckView;
     @BindView(R.id.tv_seleted_company) TextView tvSelectedCompany;           //선택업체명
@@ -210,7 +212,8 @@ public class OrderListFragment extends Fragment implements View.OnClickListener 
     }
 
     public void doSearch() {
-        ((OrderManageActivity)getActivity()).requestGetOrderList(mRadioIndex, mOrderType, strDateStart, strDateEnd);
+        ((OrderManageActivity)getActivity()).requestGetOrderList(mRadioIndex, mOrderType, strDateStart, strDateEnd, edtCompanyNmae.getText().toString());
+        edtCompanyNmae.setText("");
     }
 
     @Override

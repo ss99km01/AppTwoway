@@ -60,6 +60,8 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
     @BindView(R.id.radioGroup2) RadioGroup mRadioGroup2;
     @BindView(R.id.tv_date_start) TextView tvDateStart;
     @BindView(R.id.tv_date_end) TextView tvDateEnd;
+    @BindView(R.id.edt_company_name) EditText edtCompanyNmae;
+
     @BindView(R.id.tvCompanyType) TextView tvCompanyType;                   //처리상태
     @BindView(R.id.tvProcessStatus) TextView tvProcessStatus;               //구분
     @BindView(R.id.tvSelectedCompany) TextView tvSelectedCompany;           //선택업체명
@@ -237,7 +239,8 @@ public class ObtainOrderListFragment extends Fragment implements View.OnClickLis
     }
 
     public void doSearch() {
-        ((ObtainOrderManageActivity)getActivity()).requestGetReceiveOrderList(mRadioIndex, mOrderType, strDateStart, strDateEnd);
+        ((ObtainOrderManageActivity)getActivity()).requestGetReceiveOrderList(mRadioIndex, mOrderType, strDateStart, strDateEnd, edtCompanyNmae.getText().toString());
+        edtCompanyNmae.setText("");
     }
 
     @Override

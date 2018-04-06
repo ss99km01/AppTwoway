@@ -260,14 +260,45 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="20"/>
-                <Button
-                    android:id="@+id/btn_inquiry"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:text="@string/btn_inquiry"
-                    style="@style/Text_Center_Black_Bold_14"
-                    android:background="@drawable/btn_white"
-                    android:layout_weight="36"/>
+                    android:layout_weight="36"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="75"/>
+
+                    <EditText
+                        android:id="@+id/edt_company_name"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="220"
+                        android:hint="상호명을 입력하여 조회하세요."
+                        android:textSize="@dimen/dimen_14"
+                        android:paddingLeft="@dimen/dimen_10"
+                        android:paddingRight="@dimen/dimen_10"
+                        android:background="@drawable/memo_13"
+                        android:gravity="center_vertical|left"/>
+
+                    <Button
+                        android:id="@+id/btn_inquiry"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="110"
+                        android:text="@string/btn_inquiry"
+                        style="@style/Text_Center_Black_Bold_14"
+                        android:background="@drawable/btn_white"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="75"/>
+
+                </LinearLayout>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0dp"

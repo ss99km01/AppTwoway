@@ -321,7 +321,7 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
         sendRequest(getString(R.string.REQUEST_API_SENDORDER_UPDATE), getString(R.string.api_sendOrder), values);
     }
 
-    public void requestGetOrderList(int searchIndex, String orderTypeCode, String start, String end) {
+    public void requestGetOrderList(int searchIndex, String orderTypeCode, String start, String end, String companyName) {
         Log.e("ss99km01", "ss99km01 requestGetOrderList");
         Map<String, String> values = new HashMap<>();
         values.put("company_id", ServiceCommon.COMPANY_ID);
@@ -330,6 +330,7 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
         }
         values.put("order_ymd1", start);
         values.put("order_ymd2", end);
+        values.put("company_name", companyName);
         switch(searchIndex) {
             case SEARCH_INDEX_0:
                 break;
@@ -713,11 +714,12 @@ public class OrderManageActivity extends BaseActivity implements View.OnClickLis
             CommonUtil.showAlertDialog(this, getString(R.string.order_update), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
 //                    requestGetOrderList();
-                    if (mViewPager.getCurrentItem() != FRAGMENT_INDEX_ORDERLIST) {
+                    if (mViewPager.getCurrentItem() == FRAGMENT_INDEX_ORDERLIST) {
+                        ((OrderListFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDERLIST)).doSearch();
+                    } else {
                         mViewPager.setCurrentItem(FRAGMENT_INDEX_ORDERLIST);
                         ((OrderFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDER)).initOrder();
                     }
-                    ((OrderListFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDERLIST)).doSearch();
                     ((OrderListFragment)mPagerAdapter.getItem(FRAGMENT_INDEX_ORDERLIST)).closeDetailOrder();
                 }
             });
