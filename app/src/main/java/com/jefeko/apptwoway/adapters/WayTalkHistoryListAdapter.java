@@ -73,6 +73,7 @@ public class WayTalkHistoryListAdapter extends RecyclerView.Adapter<WayTalkHisto
         final String company_id = wayHistory.getCompany_id();
         final String user_id = wayHistory.getUser_id();
         final String pal_company_id = wayHistory.getPal_company_id();
+
         idx = position;
 
         holder.profile.setBackgroundResource(R.drawable.ic_profile_on);
@@ -129,6 +130,11 @@ public class WayTalkHistoryListAdapter extends RecyclerView.Adapter<WayTalkHisto
         Map<String, String> values = new HashMap<>();
         values.put(context.getString(R.string.COMPANY_ID), company_id);
         values.put(context.getString(R.string.PAL_COMPANY_ID), pal_company_id);
+        if(company_id.equals(PreferenceUtils.getPreferenceValueOfString(context, "company_id"))) {
+            values.put(context.getString(R.string.MSG_S_R_CODE), "Y");
+        }else{
+            values.put(context.getString(R.string.MSG_S_R_CODE), "N");
+        }
 
         volley.sendRequest(context.getString(R.string.REQUEST_API_DELMSG), context.getString(R.string.api_delMsg), values,new Response.Listener<String>(){
                     @Override
@@ -150,8 +156,10 @@ public class WayTalkHistoryListAdapter extends RecyclerView.Adapter<WayTalkHisto
                 Boolean result = obj.getBoolean("result");
 
                 if(result){
-                    this.historyList.remove(idx-1);
-                    notifyDataSetChanged();
+                    if(getItemCount() != 0) {
+                        this.historyList.remove(idx);
+                        notifyDataSetChanged();
+                    }
                 }else{
                     CommonUtil.showAlertDialog(context,"삭제실패!");
                 }
